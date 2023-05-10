@@ -143,6 +143,7 @@ button:hover {
 }
 .project {
   margin-bottom: 10px;
+  background-color: #000;
 }
 .project-image img {
   max-width: 500px;
