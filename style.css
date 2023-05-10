@@ -108,6 +108,9 @@ button:hover {
   align-items: center;
   padding: 0rem 2rem;
 }
+.column-left {
+  background-color: #000;
+}
 
 .hero-image {
   width: 100%;

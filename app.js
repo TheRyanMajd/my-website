@@ -5,6 +5,7 @@ function toggleMode() {
   const navLinks = document.querySelectorAll("nav a");
   const button = document.querySelector("button");
   const columnLeft = document.querySelector(".column-left");
+  const columnRight = document.querySelector(".column-right");
 
   if (button.textContent === "Light Mode") {
     body.style.backgroundColor = "#fff";
@@ -15,6 +16,7 @@ function toggleMode() {
     button.style.backgroundColor = "#BA0C2F";
     button.style.color = "#fff";
     columnLeft.style.color = "black";
+    columnRight.style.color = "black";
     button.textContent = "Dark Mode";
   } else {
     body.style.backgroundColor = "000";
@@ -25,6 +27,7 @@ function toggleMode() {
     button.style.backgroundColor = "";
     button.style.color = "";
     columnLeft.style.color = "white";
+    columnRight.style.color = "white";
     button.textContent = "Light Mode";
   }
 }
