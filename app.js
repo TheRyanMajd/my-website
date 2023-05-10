@@ -10,13 +10,18 @@ function toggleMode() {
     nav.style.backgroundColor = "#BA0C2F";
     navLinks.forEach((link) => (link.style.color = "#fff"));
     hero.style.backgroundColor = "#fff";
-    button.textContent = "Dark Mode";
     hero.style.color = "black";
+    button.style.backgroundColor = "#BA0C2F";
+    button.style.color = "#fff";
+    button.textContent = "Dark Mode";
   } else {
     body.style.backgroundColor = "";
     nav.style.backgroundColor = "#BA0C2F";
     navLinks.forEach((link) => (link.style.color = ""));
     hero.style.backgroundColor = "black";
+    hero.style.color = "#fff";
+    button.style.backgroundColor = "";
+    button.style.color = "";
     button.textContent = "Light Mode";
   }
 }
