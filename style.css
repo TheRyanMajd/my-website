@@ -46,6 +46,18 @@ nav button {
   color: red;
 }
 
+.project {
+  background: black;
+  color: red;
+}
+.project-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 95vh;
+  padding: 3rem calc((100vw - 1300px) / 2);
+  color: white;
+}
+
 .hero-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
