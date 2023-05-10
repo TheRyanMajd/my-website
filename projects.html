@@ -1,79 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ryan Majd's Website</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <nav>
-      <div class="logo">Ryan Majd</div>
-      <div class="nav-items">
-        <a href="./">Home</a> <a href="./projects">Projects</a> <a href="https://drive.google.com/uc?export=download&id=1-E_GEUNFXLAE9OG8FRU4imh1CgKDekqW">Resume</a>  
-       <button onClick="toggleMode()">Light Mode</button>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ryan Majd's Website</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <div class="logo">Ryan Majd</div>
+    <div class="nav-items">
+      <a href="./">Home</a>
+      <a href="./projects">Projects</a>
+      <a href="https://drive.google.com/uc?export=download&id=1-E_GEUNFXLAE9OG8FRU4imh1CgKDekqW">Resume</a>
+      <button onClick="toggleMode()">Toggle Mode</button> <!-- Updated button label -->
+    </div>
+  </nav>
+  <!-- Project 1 -->
+  <section class="project">
+    <div class="project-container">
+      <div class="project-info">
+        <h2>My 2022 Christmas List</h2>
+        <p>This project was created using what I learned in AP Computer Science A and UGA's Introduction to Computing class (CSCI 1301) to make a silly program that assists in providing gift choices from my family!</p>
+        <a href="https://github.com/RyanMajd/Projects/blob/main/ChristmasList.java" target="_blank" rel="noopener">View Project on GitHub</a>
       </div>
-    </nav>
-    
-    <section class="project">
-        <div class="project-container">
-          <div class="project-info">
-            <h2>MY 2022 CHRISTMAS LIST</h2>
-            <p>I wanted to use what I learned in AP CSA and UGA's Intro
-                 to Computing class (CSCI 1301) to make a silly program 
-                 in order to assist in providing gift choices from my 
-                 family!</p>
-            <a href="https://github.com/RyanMajd/Projects/blob/main/ChristmasList.java"
-            target="_blank" rel="noopener">View Project</a>
-          </div>
-          <div class="project-image">
-            <img src="./Resources/Images/javaChristmasProject.png" alt="Project Image showing some java code regarding the christmas list project" />
-          </div>
-        </div>
-      </section>
-
-      <section class="project">
-        <div class="project-container">
-            <div class="project-info">
-                <h2>EventCast&#8480;</h2>
-                <p>This project is designed to help users plan their day
-                    by combining data from two APIs: OpenWeatherMap and
-                    SeatGeek. The program retrieves the user's location,
-                    checks for any events happening within a 20 mile radius,
-                    and checks the weather forecast for the day. The program
-                    will then display the event information and notify the
-                    user whether it is likely to rain during the event.
-                    This project aims to provide users with a simple and
-                    convenient tool for planning their day, taking into
-                    account both weather and local events.</p>
-                <p>For access to the github repo, please contact me directly
-                    as I do not desire to have the repo publically available with
-                    my API keys accessable.
-                </p>
-                <em> <span style="color: 666666;"> <a href="mailto:rm97798@uga.edu">View Project</a></span></em>
-              </div>
-            <div class="project-image">
-            <img src="./Resources/Images/eventcast.png" alt="EventCast Image" />
-          </div>
-
-        </div>
-      </section>
-
-      
-    <section class="project">
-      <div class="project-container">
-        <div class="project-info">
-          <h2>Insert Project Title Here</h2>
-          <p>Honestly, this website is a good project 3.</p>
-          <p>Lorem Ipsum blah blah blah.</p>
-          <a href="./">View Project</a>
-        </div>
-        <div class="project-image">
-          <img src="./Resources/Images/CSUNIX.jpg" alt="Project 3 Image" />
-        </div>
+      <div class="project-image">
+        <img src="./Resources/Images/javaChristmasProject.png" alt="Screenshot of the Christmas List project in Java">
       </div>
-    </section>
-
-    <script src="app.js"></script>
-</body>
-</html>
+    </div>
+  </section>
+  <!-- Project 2 -->
+  <section class="project">
+    <div class="project-container">
+      <div class="project-info">
+        <h2>EventCast&#8480;</h2>
+        <p>EventCast is a project designed to help users plan their day by combining data from two APIs: OpenWeatherMap and SeatGeek. The program retrieves the user's location, checks for any events happening within a 20 mile radius, and checks the weather forecast for the day. The program will then display the event information and notify the user whether it is likely to rain during the event. This project aims to provide users with a simple and convenient tool for planning their day, taking into account both weather and local events.</p>
+        <p>Please contact me directly to access the GitHub repository, as I do not desire to have the repository publicly available with my API keys accessible.</p>
+        <em><a href="mailto:rm97798@uga.edu">Contact me to view project</a></em>
+      </div>
+      <div class="project-image">
+        <img src="./Resources/Images/eventcast.png" alt="Screenshot of the EventCast project">
+      </div>
+    </div>
+  </section>
+  <!-- Project 3 -->
+  <section class="project">
+    <div class="project-container">
+      <div class="project-info">
+        <h2>Insert Project Title Here</h2>
+        <p>This website is a good project 3.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <a href="./">View Project</a>
+      </div>
+      <div class="project-image">
+        <img src="./Resources/Images/CSUNIX.jpg" alt="Screenshot of Project 3">
+      </div>
