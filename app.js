@@ -4,7 +4,6 @@ function toggleMode() {
   const hero = document.querySelector(".hero");
   const navLinks = document.querySelectorAll("nav a");
   const button = document.querySelector("button");
-  const project = document.querySelectorAll(".project");
 
   if (button.textContent === "Light Mode") {
     body.style.backgroundColor = "#fff";
@@ -12,23 +11,15 @@ function toggleMode() {
     navLinks.forEach((link) => (link.style.color = "#fff"));
     hero.style.backgroundColor = "#fff";
     button.textContent = "Dark Mode";
-    document.querySelector(".column-left").style.color = "black";
+	document.querySelector(".column-left").style.color = "black";
     hero.style.color = "black";
-    project.forEach((project) => {
-      project.style.backgroundColor = "#eee";
-      project.style.color = "black";
-    });
 
   } else {
     body.style.backgroundColor = "";
     nav.style.backgroundColor = "#BA0C2F";
     navLinks.forEach((link) => (link.style.color = ""));
     hero.style.backgroundColor = "black";
-    document.querySelector(".column-left").style.color = "white";
+	document.querySelector(".column-left").style.color = "white";
     button.textContent = "Light Mode";
-    project.forEach((project) => {
-      project.style.backgroundColor = "";
-      project.style.color = "";
-    });
   }
 }
