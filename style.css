@@ -142,7 +142,7 @@ button:hover {
   background-color: black;
 }
 .project {
-  margin-bottom: 10px;
+  padding: 5px;
   background-color: #000;
 }
 .project-image img {
