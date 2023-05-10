@@ -141,7 +141,9 @@ button:hover {
   color: red;
   background-color: black;
 }
-
+.project {
+  margin-bottom: 50px;
+}
 .project-image img {
   max-width: 500px;
   height: auto;
