@@ -27,12 +27,6 @@ nav {
   padding: 0rem calc((100vw - 1300px) / 2);
 }
 
-.mobilelower {
-  display: none;
-
-}
-
-
 .logo {
   color: #000;
   font-size: 1.5rem;

@@ -1,171 +1,132 @@
-/* Originally written by Ryan Majd for my website */
+/* CSS edited for mobile by Ryan Majd */
 
 @import 'https://fonts.googleapis.com/css?family=Oswald|Slabo+27px';
 @import 'https://fonts.googleapis.com/css?family=Roboto';
+
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto
+}
+a {
+color: #BA0C2F;
+text-decoration: none;
 }
 
- a {
-  color: #BA0C2F;
-}
-        /*See how this looks in mobile first else rm*/
-* a:hover {
-  color: white;
+a:hover {
+color: white;
 }
 
 nav {
-  height: 80px;
-  background: #BA0C2F;
-  display: flex;
-  font-size: 24px;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0rem calc((100vw - 1300px) / 2);
+background: #BA0C2F;
+font-size: 18px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0rem 1rem;
+}
+
+nav a {
+color: white;
+padding: 0.5rem;
+}
+
+nav a:hover {
+color: #fdcc04;
+}
+
+nav:hover {
+color: rgb(209, 86, 86);
+}
+
+nav button {
+color: white;
+background-color: #000;
+padding: 0.5rem 1rem;
+font-size: 16px;
+border: none;
+border-radius: 50px;
+cursor: pointer;
+}
+
+nav button:hover {
+background: #fdcc04;
+color: #000;
 }
 
 .logo {
 display: none;
 }
 
-nav a {
-  text-decoration:solid;
-  color: #000;
-  padding: 0 .5rem;
-}
-
-nav a:hover {
-  color: white;
-}
-nav:hover {
-
-  color: rgb(209, 86, 86);
-}
-nav button {
-	color: white;
+.hero-container {
+grid-template-columns: 1fr;
+height: 100%;
+padding: 2rem;
+color: white;
+text-align: center;
 }
 
 .hero {
-  background: black;
-  color: red;
-  background-color: black;
-}
-
-.project {
-  background: black;
-  color: red;
-}
-.project-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  height: 95vh;
-  padding: 3rem calc((100vw - 1300px) / 2);
-  color: white;
-}
-
-.hero-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  height: 30vh;
-  padding: 3rem calc((100vw - 1300px) / 2);
-  color: white;
-}
-
-.column-left {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  color: white;
-  padding: 0rem 2rem;
-  margin-left:auto;
-  margin-right:auto;
-}
-
-.column-left img {
-    margin-left:auto;
-    margin-right:auto;
-}
-
-.column-left h1 {
-  display: none;
-}
-
-.column-left p {
-
-  margin-bottom: 2rem;
-  font-size: 1rem;
-  line-height: 1.5;
-}
-
-button {
-  padding: .5rem 1rem;
-  font-size: 1rem;
-  border: none;
-  color: #fdcc04;
-  background: #000;
-  cursor: pointer;
-  border-radius: 50px;
-}
-
-button:hover {
-  background: #fff;
-  color: #000;
-}
-
-.column-right {
-  display: none;
-}
-.column-left {
-  background-color: #000;
-  font-size: 80%;
+background: black;
+color: red;
 }
 
 .hero-image {
-  width: 100%;
-  height: 100%;
+display:flex;
+width: 100%;
+height: auto;
 }
 
-.project {
-  padding: 10px;
-  background-color: #000;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  font-size: 90%;
+.column-left {
+background-color: #000;
+color: white;
+font-size: 16px;
+padding: 1rem;
 }
-.project p {
-    font-size:10px;
 
+.column-left img {
+margin: 0 auto;
+}
+
+.column-left p {
+font-size: 14px;
+line-height: 1.5;
 }
 
 .project-container {
- height:fit-content;
+display: block;
+height: fit-content;
+padding: 1rem;
+color: white;
+text-align: center;
 }
+
+.project {
+padding: 10px;
+background-color: #000;
+margin-top: 0px;
+margin-bottom: 0px;
+font-size: 16px;
+}
+
+.project p {
+font-size: 12px;
+}
+
 .project-image img {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  max-width: 170px;
-  margin-left: 0px;
-  margin-right: 100px;
-  height: auto;
-  opacity: 80%;
+margin: 0 auto;
+max-width: 120px;
+height: auto;
+opacity: 80%;
 }
 
 .timeline {
-  color: red;
-  font-size: 10px;
-  margin-left:0;
-  margin-top: 3px;
+font-size: 12px;
+margin: 0;
+margin-top: 3px;
 }
 
 .bottom-image {
-  background-color: black;
-}
-@media screen and (max-width: 768px) {
-  .hero-container {
-    grid-template-columns: 1fr;
-  }
+background-color: black;
 }
