@@ -6,14 +6,13 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Roboto, Oswald, 'Open Sans', 'Helvetica Neue', sans-serif;
-
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto
 }
 
  a {
   color: #BA0C2F;
 }
-
+        /*See how this looks in mobile first else rm*/
 * a:hover {
   color: white;
 }
@@ -22,29 +21,20 @@ nav {
   height: 80px;
   background: #BA0C2F;
   display: flex;
+  font-size: 24px;
   justify-content: space-between;
   align-items: center;
   padding: 0rem calc((100vw - 1300px) / 2);
 }
 
-.mobilelower {
-  display: none;
-
-}
-
-
 .logo {
-  color: #000;
-  font-size: 1.5rem;
-  font-weight: bold;
-  font-style: normal;
-  padding: 0, rem;
+display: none;
 }
 
 nav a {
-  text-decoration: none;
+  text-decoration:solid;
   color: #000;
-  padding: 0 1.5rem;
+  padding: 0 .5rem;
 }
 
 nav a:hover {
@@ -61,6 +51,7 @@ nav button {
 .hero {
   background: black;
   color: red;
+  background-color: black;
 }
 
 .project {
@@ -78,7 +69,7 @@ nav button {
 .hero-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 95vh;
+  height: 30vh;
   padding: 3rem calc((100vw - 1300px) / 2);
   color: white;
 }
@@ -90,20 +81,23 @@ nav button {
   align-items: flex-start;
   color: white;
   padding: 0rem 2rem;
+  margin-left:auto;
+  margin-right:auto;
 }
 
 .column-left img {
-  margin-left: 4rem;
+    margin-left:auto;
+    margin-right:auto;
 }
 
 .column-left h1 {
-  margin-bottom: 1rem;
-  font-size: 3rem;
+  display: none;
 }
 
 .column-left p {
+
   margin-bottom: 2rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
   line-height: 1.5;
 }
 
@@ -123,14 +117,11 @@ button:hover {
 }
 
 .column-right {
-  display: flex;
-    flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0rem 2rem;
+  display: none;
 }
 .column-left {
   background-color: #000;
+  font-size: 80%;
 }
 
 .hero-image {
@@ -138,64 +129,36 @@ button:hover {
   height: 100%;
 }
 
-.light-mode {
-  background-color: #fff;
-  color: #000;
-}
-
-.light-mode button {
-  color: #000;
-}
-
-.light-mode .hero {
-  color: red;
-  background-color: black;
-}
-
-.dark-mode {
-  background-color: #000;
-  color: #fff;
-}
-
-.dark-mode button {
-  color: #fff;
-}
-
-.dark-mode .hero {
-  color: red;
-  background-color: black;
-}
-
-
 .project {
   padding: 10px;
   background-color: #000;
   margin-top: 0px;
   margin-bottom: 0px;
-  
+  font-size: 90%;
 }
+.project p {
+    font-size:10px;
+
+}
+
 .project-container {
  height:fit-content;
 }
 .project-image img {
   margin-top: 0px;
   margin-bottom: 0px;
-  max-width: 500px;
-  padding: .5rem;
+  max-width: 170px;
+  margin-left: 0px;
+  margin-right: 100px;
   height: auto;
+  opacity: 80%;
 }
 
 .timeline {
   color: red;
-  font-size: 24px;
-margin-left: 12rem;
-}
-.giphy-embed {
-  width: fit-content;
-  height: fit-content;
-  scale:25%;
-  overflow: hidden;
-
+  font-size: 10px;
+  margin-left:0;
+  margin-top: 3px;
 }
 
 .bottom-image {
