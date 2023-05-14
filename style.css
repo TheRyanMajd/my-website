@@ -192,6 +192,11 @@ margin-left: 12rem;
 
 }
 
+.resume {
+  color: white;
+  background-color: black;
+}
+
 .bottom-image {
   background-color: black;
 }
