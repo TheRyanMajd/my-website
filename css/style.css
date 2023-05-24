@@ -26,7 +26,7 @@ nav {
   align-items: center;
   padding: 0rem calc((100vw - 1300px) / 2);
 }
-
+/* EVERY ELEMENT IN LOGO CLASS (because of . before it) */
 .logo {
   color: #000;
   font-size: 1.5rem;
