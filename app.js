@@ -1,41 +1,66 @@
 'use strict'; // Runs JS in strict mode, helps catch errors
 // JS Code is read top to bottom, there is no main method in JS
 
-window.onload = function() {
+window.onload = function () {
   checkMobileCSS();
 };
 
-function checkMobileCSS() {
-  
-    if (window.matchMedia("(max-width: 767px)").matches) {
- 
-      const columnLeft = document.querySelector('.column-left');
-      const image = columnLeft.querySelector('img');
-      image.src = './Resources/Images/mobile.gif';
+function rainbowText() {
+  const rainbowElements = document.getElementsByClassName("rainbow");
+  const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+  let colorIndex = 0;
 
-    } 
+  for (let i = 0; i < rainbowElements.length; i++) {
+    const rainbowElement = rainbowElements[i];
+    const text = rainbowElement.textContent;
+
+    setInterval(function() {
+      let coloredText = '';
+      for (let j = 0; j < text.length; j++) {
+        const char = text[j];
+        const color = colors[(j + colorIndex) % colors.length];
+        coloredText += `<span style="color: ${color};">${char}</span>`;
+      }
+
+      rainbowElement.innerHTML = coloredText;
+      colorIndex = (colorIndex + 1) % colors.length;
+    }, 500); // Change the interval duration (in milliseconds) to adjust the speed of color cycling
+  }
+}
+rainbowText();
+
+function checkMobileCSS() {
+
+  if (window.matchMedia("(max-width: 767px)").matches) {
+
+    const columnLeft = document.querySelector('.column-left');
+    const image = columnLeft.querySelector('img');
+    image.src = './Resources/Images/mobile.gif';
+  
+  }
+  
 }
 //NOTES:
 // let is one of the new ways to declare variables in JavaScript.
 // let is block scoped, meaning it only exists within the block it is declared in.
 // var is function scoped, meaning it exists within the function it is declared in.
 // const is also block scoped, but it cannot be reassigned. Like final in Java.
-let names = ['Joel', 'Jasmine', 'Julia', 'Jacob']; //an Array
-let greeting = 'Hello, my name is '+ names[0]; //concatenation
+let names = ['Joel', 'Jasmine', 'Rachel', 'Hartmann']; //an Array
+let greeting = 'Hello, my name is ' + names[2] + ' ' + names[3]; //concatenation
 console.log(greeting);  //=> 'Hello, my name is Joel'
 
 //an object of ages (explicit Strings for keys)
 //The `ages` object has a `sarah` property (with a value of 42)
-let ages = {'sarah':42, 'amit':35, 'zhang':13};
+let ages = { 'sarah': 42, 'amit': 35, 'zhang': 13 };
 
 //different properties can have the same values
 //property names with non-letter characters must be in quotes
-let meals = {breakfast:'coffee', lunch: 'coffee', 'afternoon tea': 'coffee'}
+let meals = { breakfast: 'coffee', lunch: 'coffee', 'afternoon tea': 'coffee' }
 
 //values can be of different types (including arrays or other objects!)
-let typeExamples = {number:12, string:'dog', array:[1,2,3]};
+let typeExamples = { number: 12, string: 'dog', array: [1, 2, 3] };
 
-let myObject = {a:1, b:2}
+let myObject = { a: 1, b: 2 }
 
 //convert object to string, won't log nicely
 console.log("My object: " + myObject); //=> My object: [object Object]
