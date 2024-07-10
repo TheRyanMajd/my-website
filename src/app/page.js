@@ -1,8 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import vers from "../../package.json";
+import pfp from "../../public/bruhpfp.jpg";
+import Projects from "./Projects";
 export default function Home() {
   return (
-    (<div key="1" className="flex flex-col min-h-screen bg-gray-800 text-white">
+    (<div key="1" className="flex flex-col min-h-[100dvh]">
       <header className="px-4 lg:px-6 h-14 flex items-center">
         {/* <button
           aria-label="Toggle light mode"
@@ -10,45 +13,46 @@ export default function Home() {
           <LightbulbIcon className="h-4 w-4 text-white" />
         </button> */}
         <Link className="flex items-center justify-center" href="#">
-          <ComputerIcon className="h-6 w-6 text-white" />
+          <ComputerIcon className="h-6 w-6 text-white rounded-md items-center justify-center flex hover:animate-pulse" />
           <span className="sr-only">CS Portfolio</span>
         </Link>
         <nav className="ml-auto flex gap-4 sm:gap-6">
           <Link
-            className="text-sm font-medium text-gray-300 transition-all hover:font-bold underline-offset-4"
+            className="text-sm font-medium text-gray-300 transition-all hover:font-bold underline-offset-4 hover:animate-bounce"
             href="#projects"> 
             Projects
           </Link>
           <Link
-            className="text-sm font-medium text-gray-300 transition-all hover:font-bold underline-offset-4"
+            className="text-sm font-medium text-gray-300 transition-all hover:font-bold underline-offset-4 hover:animate-spin"
             href="#skills">
             Skills
           </Link>
           <Link
-            className="text-sm font-medium text-gray-300 transition-all hover:font-bold underline-offset-4"
+            className="text-sm font-medium text-gray-300 transition-all hover:font-bold underline-offset-4 hover:animate-ping"
             href="#contact">
             Contact
           </Link>
           <Link
-            className="text-sm font-medium text-gray-300 transition-all hover:font-bold underline-offset-4"
+            className="text-sm font-medium text-gray-300 transition-all hover:font-bold underline-offset-4 hover:animate-pulse"
             href="#resume">
             Resume
           </Link>
         </nav>
+
       </header>
       <main className="flex-1"> 
-      <section className="w-full pt-12 md:pt-24 lg:pt-32 border-y border-gray-700">
-  <div className="container space-y-12 px-4 md:px-6 space-y-10 xl:space-y-16">
+      <section className="align-center w-full py-4 md:py-8 lg:py-16 dotted">
+  <div className="mx-auto container space-y-12 px-4 md:px-6 space-y-10 xl:space-y-16">
     <div className="grid max-w-[1300px] mx-auto gap-4 px-4 sm:px-6 md:grid-cols-2 md:gap-16">
-      <div className="text-center md:text-left col-span-1">
+      <div className="px-auto text-center md:text-left col-span-1">
         <h1
           className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
           Ryan Majd&apos;s Portfolio
         </h1>
-        <p className="mx-auto max-w-[700px] text-gray-400 md:text-xl mb-4">
+        <p className="mx-auto my-4 max-w-[700px] text-gray-400 md:text-xl mb-4">
         Ryan Majd, a tech-savvy CS student at the&nbsp; 
         <Link
-            className="text-sm font-medium text-red-400 md:text-xl mb-4 transition-all hover:font-bold underline-offset-4"
+            className="text-sm font-medium text-red-400 md:text-xl my-4 transition-all hover:font-bold underline-offset-4"
             target="_blank"
             href="https://www.uga.edu/">
             University of Georgia
@@ -56,131 +60,52 @@ export default function Home() {
         </p>
         <div className="space-x-4 mb-4">
           <Link
-            className="inline-flex h-9 items-center justify-center rounded-md bg-gray-600 px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-gray-500 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-700 disabled:pointer-events-none disabled:opacity-50"
+            className="inline-flex mx-auto h-9 items-center hover:animate-bounce justify-center rounded-md bg-black px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-gray-500 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-700 disabled:pointer-events-none disabled:opacity-50"
             target="_blank"
-            href="https://theryanmajd.github.io/my-website/">
-              
-            View my first Website
+            href="https://github.com/TheRyanMajd/">    
+            Check out my Github
           </Link>
-          
+          <Link
+            className="inline-flex mx-auto h-9 items-center hover:animate-bounce justify-center rounded-md bg-black px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-gray-500 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-700 disabled:pointer-events-none disabled:opacity-50"
+            target="_blank"
+            href="https://www.linkedin.com/in/ryan-majd/">    
+            Connect on LinkedIn
+          </Link>
+          <p className="my-2 text-gray-400 md:text-xl mb-2">Version: {vers.version}</p>
         </div>
       </div>
-      <div className="mt-4 text-center md:text-right col-span-1"> 
+      <div className="mx-auto text-center md:text-right col-span-1"> 
       <h1
-          className="lg:leading-tighter text-xl font-bold tracking-tighter sm:text-4xl md:text-3xl xl:text-[3rem] 2xl:text-[3rem]">
+          className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
           Glad You&apos;re Here!
         </h1>
-        <p className="mx-auto max-w-[700px] text-gray-400 md:text-xl mb-4">
-        This is v2 of my site, which I built using Next.js, a React framework. I drew inspiration from&nbsp; 
-        <Link
-            className="text-sm font-medium text-purple-400 md:text-xl mb-4 transition-all hover:font-bold underline-offset-4"
-            target="_blank"
-            href="https://v0.dev">
-            v0
-          </Link>, which is a generative UI system by Vercel powered by AI. I&apos;m still working on it, so please excuse the mess! 🧹
-        </p>
-       
+        <Image
+      alt="Image of Me"
+      className="mx-auto my-4 rounded-lg shadow-xl transition-all hover:shadow-2xl"
+      src={pfp}
+      style={{
+        objectFit: "cover",
+        width: "100%", /* Responsive width */
+        maxWidth: "300px", /* Max width */
+        height: "auto" /* Maintain aspect ratio */
+      }}
+    />
         </div>
     </div>
   </div>
 </section>
 
-        <section section id= "projects" className="w-full py-12 md:py-24 lg:py-32 bg-gray-700">
-          <div className="container space-y-12 px-4 md:px-6">
-            <div
-              className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Explore my Projects</h2>
-              </div>
-            </div>
-            <div
-              className="mx-auto grid items-start gap-8 sm:max-w-4xl sm:grid-cols-1 md:gap-12 lg:max-w-5xl lg:grid-cols-2">
-              <div className="grid gap-1">
-                <h3 className="text-lg font-bold">Balloon Pop Java Game</h3>
-                <p className="text-sm text-gray-400">This game uses Java&apos;s JavaFX Library where players can pop balloons that 
-                appear on the screen. It includes various features such as a main menu, playground mode, thirty-second mode, 
-                background music, and more!</p>
-                <Link
-                  className="text-sm font-medium hover:underline underline-offset-4 text-gray-300"
-                  href="https://github.com/TheRyanMajd/balloon-pop-java-game">
-                  View Project on Github
-                </Link>
-                
-              </div>
-              <div className="grid gap-1">
-              <div className="space-y-3">
-                <div className="youtube-video aspect-w-16 aspect-h-9">
-                  <iframe
-                  className = "w-full"
-                    src="https://www.youtube.com/embed/i2_uSYEO2QQ"
-                    height = "275"
-                    title="YouTube video player"
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-              </div>
-                </div>
-            </div>
-            <div
-              className="mx-auto grid items-start gap-8 sm:max-w-4xl sm:grid-cols-1 md:gap-12 lg:max-w-5xl lg:grid-cols-2">
-              <div className="grid gap-1">
-                <h3 className="text-lg font-bold">EventCast℠</h3>
-                <p className="text-sm text-gray-400">Integrates OpenWeatherMap and SeatGeek APIs to help users plan
-                their day. By retrieving the user&apos;s location, checking for events within a 20-mile radius, and providing the
-                day&apos;s weather forecast, the program offers a convenient tool for users to plan around both weather conditions
-                and local events. For access to the GitHub repository, please contact directly to ensure the security of API keys.</p>
-                <Link
-                  className="text-sm font-medium hover:underline underline-offset-4 text-gray-300"
-                  href="mailto:ryan.majd@uga.edu">
-                  Contact Me for Access
-                </Link>
-              </div>
-              <Image
-                alt="Screenshot of EventCast℠"
-                className="mx-auto"
-                height="2"
-                src="https://theryanmajd.github.io/my-website/Resources/Images/eventcast.png"
-                style={{
-                  objectFit: "cover",
-                }}
-                width="880"
-              />
-            </div>
-            <div
-              className="mx-auto grid items-start gap-8 sm:max-w-4xl sm:grid-cols-1 md:gap-12 lg:max-w-5xl lg:grid-cols-2">
-              <div className="grid gap-1">
-                <h3 className="text-lg font-bold">My 2022 Christmas List</h3>
-                <p className="text-sm text-gray-400">This project was created using what I learned in AP Computer Science A and UGA&apos;s Introduction to Computing class (CSCI 1301) to make a silly program that assists in providing gift choices from my family!</p>
-                <Link
-                  className="text-sm font-medium hover:underline underline-offset-4 text-gray-300"
-                  href="https://github.com/RyanMajd/Projects/blob/main/ChristmasList.java">
-                  View Project on Github
-                </Link>
-                {/* https://theryanmajd.github.io/my-website/Resources/Images/javaChristmasProject.png */}
-                </div>
-              <Image
-                alt="Screenshot of EventCast℠"
-                className="mx-auto"
-                height="2"
-                src="https://theryanmajd.github.io/my-website/Resources/Images/javaChristmasProject.png"
-                style={{
-                  objectFit: "cover",
-                }}
-                width="880"
-              />  
-            </div>
-          </div>
-          
-        </section>
-        <section section id = "skills" className="w-full py-12 md:py-24 lg:py-32 bg-gray-800">
+<section section id= "projects">
+<Projects  />
+</section>
+        <section section id = "skills" className="w-full py-2 md:py-4 lg:py-8 dotted">
           <div 
-            className="container grid items-center justify-center gap-4 px-4 text-center md:px-6 py-8">
+            className="mx-auto container grid items-center justify-center gap-4 px-4 text-center md:px-6 py-8">
             <div className="space-y-3">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">My Skills</h2>
             </div>
             <div
-              className="mx-auto grid items-start gap-8 sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-5xl lg:grid-cols-5">
+              className="mx-auto grid items-start gap-8 sm:max-w-4xl sm:grid-cols-2 md:gap-6 lg:max-w-5xl lg:grid-cols-5">
               <div className="flex flex-col items-center justify-center">
                 <BeanIcon className="h-6 w-6 mb-2 text-white" />
                 <span className="text-sm font-medium">Java</span>
@@ -195,11 +120,11 @@ export default function Home() {
               </div>
               <div className="flex flex-col items-center justify-center">
                 <AppleIcon className="h-6 w-6 mb-2 text-white" />
-                <span className="text-sm font-medium">AI</span>
+                <span className="text-sm font-medium">Artifical Intelligence & Machine Learning</span>
               </div>
               <div className="flex flex-col items-center justify-center">
                 <UnityLogoIcon className="h-6 w-6 mb-2 text-white" />
-                <span className="text-sm font-medium">Unity</span>
+                <span className="text-sm font-medium">Unity3D</span>
               </div>
               <div className="flex flex-col items-center justify-center">
               <RulerIcon className="h-6 w-6 mb-2 text-white" />
@@ -224,95 +149,99 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section section id = "contact" className="w-full py-12 md:py-12 lg:py32 bg-gray-700">
-          <div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6 py-8">
-            <div className="space-y-3">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Contact Me</h2>
-            </div>
-            <div className="mx-auto grid items-start gap-8 sm:max-w-4xl sm:grid-cols-2 md:gap-12 lg:max-w-5xl lg:grid-cols-3">
-              <div className="flex flex-col items-center justify-center">
-                <LinkedinIcon className="h-6 w-6 mb-2 text-white" />
-                <Link className="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300" href="https://www.linkedin.com/in/ryan-majd/">
-                  LinkedIn
-                </Link>
-              </div>
-              <div className="flex flex-col items-center justify-center">
-                <GithubIcon className="h-6 w-6 mb-2 text-white" />
-                <Link className="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300" href="https://github.com/TheRyanMajd/">
-                  GitHub
-                </Link>
-              </div>
-              <div className="flex flex-col items-center justify-center">
-                <TwitterIcon className="h-6 w-6 mb-2 text-white" />
-                <Link className="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300" href="https://x.com/theryanmajd">
-                𝕏
-                </Link>
-              </div>
-              <div className="flex flex-col items-center justify-center">
-                <PhoneIcon className="h-6 w-6 mb-2 text-white" />
-                <span className="text-sm font-medium">(678) 677-1014</span>
-              </div>
-              <div className="flex flex-col items-center justify-center">
-              <MailIcon className="h-6 w-6 mb-2 text-white strokeWidth: 10" />
-              
-                <Link className="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300" href="mailto:ryan.majd@uga.edu">
-                  Email
-                </Link>
-              </div>
-              <div className="flex flex-col items-center justify-center">
-              <GameJoltIcon className="h-6 w-6 mb-2 text-white strokeWidth: 10" />
-              
-                <Link className="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300" href="https://gamejolt.com/@CimexGames">
-                  GameJolt
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-800">
-  <div id="resume" className="container grid items-center justify-center gap-4 px-4 text-center md:px-6 py-8">
-    <div className="space-y-3">
-      <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">My Resume</h2>
-      <p className="mx-auto max-w-[700px] text-gray-400 md:text-xl mb-4">
-        Below you can view my detailed resume.
-      </p>
-    </div>
-    <div className="flex justify-center">
-    <div className="flex flex-col items-center justify-center">
-    <Link className="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300" target= "_blank" href="https://docs.google.com/document/d/12og3HniuDy5Nqm0LpAfb5dOaV5B-k4jn/edit?usp=sharing&ouid=102048050812793693879&rtpof=true&sd=true">
-                <Book className="h-60 w-60 mb-2 text-white" />
-                  Access my Resume
-                </Link>
-              </div>
-      {/* <iframe
-        title="Resume"
-        src="https://docs.google.com/document/d/12og3HniuDy5Nqm0LpAfb5dOaV5B-k4jn/edit?usp=sharing&ouid=102048050812793693879&rtpof=true&sd=true"
-        width="1000px"
-        height="600px"
-        style={{ maxWidth: '1000px' }}
-      ></iframe> */}
+
+<section id="contact" class="bg-black-700 w-full">
+  <div class="container mx-auto text-center px-4 md:px-6 py-8">
+    <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Contact Me</h2>
+    <div class="mt-8">
+      <ul class="flex space-x-8 animate-slide  justify-center overflow-hidden h-12">
+        <Link className="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="https://www.linkedin.com/in/ryan-majd/">
+        <li class="flex flex-col items-center justify-center">
+          <LinkedinIcon class="h-6 w-6 mb-2 text-white" /> LinkedIn
+        </li>
+        </Link>
+        <Link class="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="https://github.com/TheRyanMajd/">
+        <li class="flex flex-col items-center justify-center">
+          <GithubIcon class="h-6 w-6 mb-2 text-white" /> GitHub
+        </li>
+        </Link>
+        <Link class="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="https://x.com/theryanmajd">
+        <li class=" flex flex-col items-center justify-center">
+          <TwitterIcon class="h-6 w-6 mb-2 text-white" />
+          𝕏
+        </li>
+        </Link>
+        
+        <Link class="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="tel:+16786771014">
+        <li class=" flex flex-col items-center justify-center">
+          <PhoneIcon class="h-6 w-6 mb-2 text-white" />
+          <span class="text-sm font-medium">(678) 677-1014</span>
+        </li>
+        </Link>
+        <Link class="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="mailto:ryan.majd@uga.edu">
+        <li class=" flex flex-col items-center justify-center">
+          <MailIcon class="h-6 w-6 mb-2 text-white" />
+        </li>
+        Email</Link>
+        {/* <Link className="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="https://gamejolt.com/@CimexGames">  
+        <li class=" flex flex-col items-center justify-center">
+          <GameJoltIcon class="h-6 w-6 mb-2 text-white" />
+          GameJolt
+        </li>
+        </Link> */}
+      </ul>
     </div>
   </div>
 </section>
-
-
+<section className="w-full py-8 md:py-12 lg:py-16 dotted">
+  <div id="resume" className="container mx-auto px-4 md:px-6">
+    <div className="max-w-3xl mx-auto text-center space-y-8">
+      <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">
+        My Resume
+      </h2>
+      <p className="text-xl text-gray-400">
+        Take a look at my professional experience and qualifications.
+      </p>
+      <div className="flex justify-center space-x-4">
+      <Link
+          href="https://docs.google.com/document/d/12og3HniuDy5Nqm0LpAfb5dOaV5B-k4jn/edit?usp=sharing&ouid=102048050812793693879&rtpof=true&sd=true"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center px-6 py-3 border border-transparent text-base hover:animate-pulse font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition duration-150 ease-in-out"
+        >
+          <Book className="w-5 h-5 mr-2" />
+          View on Google Docs
+        </Link>
+      </div>
+      <div className="relative overflow-hidden rounded-lg shadow-xl bg-white p-2">
+        <div className="absolute inset-0 bg-gradient bg-black  animate-gradient-x"></div>
+        <iframe lazy
+          title="Resume"
+          className="relative w-full h-full aspect-[4/3] md:aspect-[16/9] rounded-md"
+          src="https://docs.google.com/document/d/12og3HniuDy5Nqm0LpAfb5dOaV5B-k4jn/edit?usp=sharing&ouid=102048050812793693879&rtpof=true&sd=true"
+          style={{ minHeight: '500px', maxWidth: '1600px'}}
+        />
+      </div>
+    </div>
+  </div>
+</section>
       </main>
       <footer
         className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-gray-700">
         <p className="text-xs text-gray-400">© Ryan Majd. All rights reserved.</p>
         <nav className="sm:ml-auto flex gap-4 sm:gap-6">
           <Link
-            className="text-xs hover:underline underline-offset-4 text-gray-300"
+            className="text-xs hover:underline underline-offset-4 text-gray-300 hover:animate-pulse"
             href="https://www.linkedin.com/in/ryan-majd/">
             LinkedIn
           </Link>
           <Link
-            className="text-xs hover:underline underline-offset-4 text-gray-300"
+            className="text-xs hover:underline underline-offset-4 text-gray-300 hover:animate-pulse"
             href="https://github.com/TheRyanMajd/">
             GitHub
           </Link>
           <Link
-            className="text-xs hover:underline underline-offset-4 text-gray-300"
+            className="text-xs hover:underline underline-offset-4 text-gray-300 hover:animate-pulse"
             href="mailto:ryan.majd@uga.edu">
             Email
           </Link>
