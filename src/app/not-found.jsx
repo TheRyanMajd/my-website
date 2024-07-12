@@ -7,10 +7,10 @@ function NotFound() {
     <div className="mx-auto max-w-md text-center">
         <h1 className="inline-flex text-5xl animate-spin hover:animate-none">😾</h1>
       <h1 className="mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-        Oops, we couldn't find that page
+        Oops, we couldn&apos;t find that page
       </h1>
       <p className="mt-4 text-muted-foreground">
-        We're sorry, but the page you were looking for doesn't seem to exist. It's possible the page has been moved or
+        We&apos;re sorry, but the page you were looking for doesn&apos;t seem to exist. It&apos;s possible the page has been moved or
         deleted, or you may have followed an outdated link.
       </p>
       <div className="mt-6">
