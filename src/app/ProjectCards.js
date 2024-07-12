@@ -15,7 +15,6 @@ function ProjectCard({ title, description, imageUrl, linkHref, favorite, year}) 
         className="mx-auto  max-h-40"
         height={2} // Adjust this as necessary, perhaps using a prop
         src={imageUrl}
-        layout="responsive"
         style={{
           objectFit: "cover",
         }}
@@ -33,7 +32,7 @@ function ProjectCard({ title, description, imageUrl, linkHref, favorite, year}) 
           )}
         </div>
         <p className="text-sm text-muted-foreground">{description}</p>
-        <p>{year}</p>
+        <p className="special">{year}</p>
       </div>
     </div>
   );

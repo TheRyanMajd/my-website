@@ -48,8 +48,7 @@ body {
 }
 .special {
   color: #5f43b2;
-  font-style: normal;
-  font-weight: 1000;
+  font-weight: bold;
 }
 
 .anim-border:hover::before {
@@ -121,3 +120,11 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+@media (max-width: 599px) {
+  .hide-on-mobile {
+      display: none;
+  }
+}
+
+

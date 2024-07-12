@@ -1,9 +1,29 @@
+'use client'
 import Image from "next/image";
 import Link from "next/link";
+import React, { useEffect, useState } from 'react';
 import vers from "../../package.json";
 import pfp from "../../public/bruhpfp.jpg";
 import Projects from "./Projects";
+
+ 
 export default function Home() {
+   // Initialize mobile state as false
+   const [mobile, setMobile] = useState(false);
+
+   useEffect(() => {
+     // Update the mobile state based on window width
+     const updateMobile = () => setMobile(window.innerWidth < 599);
+ 
+     // Call once to set initial state based on current window width
+     updateMobile();
+ 
+     // Setup event listener for resizing the window
+     window.addEventListener('resize', updateMobile);
+ 
+     // Cleanup the event listener when the component unmounts
+     return () => window.removeEventListener('resize', updateMobile);
+   }, []);
   return (
     (<div key="1" className="flex flex-col min-h-[100dvh]">
       <header className="px-4 lg:px-6 h-14 flex items-center">
@@ -60,16 +80,16 @@ export default function Home() {
         </p>
         <div className="space-x-4 mb-4">
           <Link
-            className="inline-flex mx-auto h-9 items-center hover:animate-bounce justify-center rounded-md bg-black px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-gray-500 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-700 disabled:pointer-events-none disabled:opacity-50"
+            className="inline-flex h-9 items-center hover:animate-bounce rounded-md bg-black px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-gray-500 shitbutton"
             target="_blank"
             href="https://github.com/TheRyanMajd/">    
-            Check out my Github
+            {mobile ? 'Github' : 'Check out my Github'}
           </Link>
           <Link
-            className="inline-flex mx-auto h-9 items-center hover:animate-bounce justify-center rounded-md bg-black px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-gray-500 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-700 disabled:pointer-events-none disabled:opacity-50"
+            className="inline-flex h-9 items-center hover:animate-bounce rounded-md bg-black px-4 py-2 text-sm  font-medium text-white shadow transition-colors hover:bg-gray-500 shitbutton"
             target="_blank"
             href="https://www.linkedin.com/in/ryan-majd/">    
-            Connect on LinkedIn
+            {mobile ? 'LinkedIn' : 'Connect on LinkedIn'}
           </Link>
           <p className="my-2 text-gray-400 md:text-xl mb-2">Version: {vers.version}</p>
         </div>
@@ -95,10 +115,10 @@ export default function Home() {
   </div>
 </section>
 
-<section section id= "projects">
+<section id= "projects">
 <Projects  />
 </section>
-        <section section id = "skills" className="w-full py-2 md:py-4 lg:py-8 dotted">
+        <section id = "skills" className="w-full py-2 md:py-4 lg:py-8 dotted">
           <div 
             className="mx-auto container grid items-center justify-center gap-4 px-4 text-center md:px-6 py-8">
             <div className="space-y-3">
@@ -150,45 +170,39 @@ export default function Home() {
           </div>
         </section>
 
-<section id="contact" class="bg-black-700 w-full">
-  <div class="container mx-auto text-center px-4 md:px-6 py-8">
-    <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Contact Me</h2>
-    <div class="mt-8">
-      <ul class="flex space-x-8 animate-slide  justify-center overflow-hidden h-12">
+<section id="contact" className="bg-black-700 w-full">
+  <div className="container mx-auto text-center px-4 md:px-6 py-8">
+    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Contact Me</h2>
+    <div className="mt-8">
+      <ul className="flex space-x-8 animate-slide  justify-center overflow-hidden h-12">
         <Link className="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="https://www.linkedin.com/in/ryan-majd/">
-        <li class="flex flex-col items-center justify-center">
-          <LinkedinIcon class="h-6 w-6 mb-2 text-white" /> LinkedIn
+        <li className="flex flex-col items-center justify-center">
+          <LinkedinIcon className="h-6 w-6 mb-2 text-white" /> LinkedIn
         </li>
         </Link>
-        <Link class="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="https://github.com/TheRyanMajd/">
-        <li class="flex flex-col items-center justify-center">
-          <GithubIcon class="h-6 w-6 mb-2 text-white" /> GitHub
+        <Link className="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="https://github.com/TheRyanMajd/">
+        <li className="flex flex-col items-center justify-center">
+          <GithubIcon className="h-6 w-6 mb-2 text-white" /> GitHub
         </li>
         </Link>
-        <Link class="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="https://x.com/theryanmajd">
-        <li class=" flex flex-col items-center justify-center">
-          <TwitterIcon class="h-6 w-6 mb-2 text-white" />
+        <Link className="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="https://x.com/theryanmajd">
+        <li className=" flex flex-col items-center justify-center">
+          <TwitterIcon className="h-6 w-6 mb-2 text-white" />
           𝕏
         </li>
         </Link>
         
-        <Link class="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="tel:+16786771014">
-        <li class=" flex flex-col items-center justify-center">
-          <PhoneIcon class="h-6 w-6 mb-2 text-white" />
-          <span class="text-sm font-medium">(678) 677-1014</span>
+        <Link className="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="tel:+16786771014">
+        <li className=" flex flex-col items-center justify-center">
+          <PhoneIcon className="h-6 w-6 mb-2 text-white" />
+          <span className="text-sm font-medium">(678) 677-1014</span>
         </li>
         </Link>
-        <Link class="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="mailto:ryan.majd@uga.edu">
-        <li class=" flex flex-col items-center justify-center">
-          <MailIcon class="h-6 w-6 mb-2 text-white" />
+        <Link className="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="mailto:ryan.majd@uga.edu">
+        <li className=" flex flex-col items-center justify-center">
+          <MailIcon className="h-6 w-6 mb-2 text-white" />
         </li>
         Email</Link>
-        {/* <Link className="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="https://gamejolt.com/@CimexGames">  
-        <li class=" flex flex-col items-center justify-center">
-          <GameJoltIcon class="h-6 w-6 mb-2 text-white" />
-          GameJolt
-        </li>
-        </Link> */}
       </ul>
     </div>
   </div>
@@ -210,18 +224,28 @@ export default function Home() {
           className="inline-flex items-center px-6 py-3 border border-transparent text-base hover:animate-pulse font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition duration-150 ease-in-out"
         >
           <Book className="w-5 h-5 mr-2" />
-          View on Google Docs
+          {mobile ? 'Google Doc' : 'View on Google Docs'}
+        </Link>
+        <Link
+          href="https://drive.google.com/file/d/1DIbBT_PiEui-N5XDp05OYOiLYrCSmx0V/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center px-6 py-3 border border-transparent text-base hover:animate-pulse font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition duration-150 ease-in-out"
+        >
+          <PageIcon className="w-5 h-5 mr-2" />
+          {mobile ? 'PDF' : 'View as PDF'}
         </Link>
       </div>
-      <div className="relative overflow-hidden rounded-lg shadow-xl bg-white p-2">
+      <div className="relative overflow-hidden rounded-lg shadow-xl bg-white p-2 hide-on-mobile">
         <div className="absolute inset-0 bg-gradient bg-black  animate-gradient-x"></div>
-        <iframe lazy
+        <iframe lazy="true"
           title="Resume"
-          className="relative w-full h-full aspect-[4/3] md:aspect-[16/9] rounded-md"
+          className="relative w-full h-full aspect-[8.5/14] md:aspect-[9/9] rounded-md"
           src="https://docs.google.com/document/d/12og3HniuDy5Nqm0LpAfb5dOaV5B-k4jn/edit?usp=sharing&ouid=102048050812793693879&rtpof=true&sd=true"
           style={{ minHeight: '500px', maxWidth: '1600px'}}
         />
       </div>
+      
     </div>
   </div>
 </section>
@@ -271,6 +295,27 @@ function Book(props) {
     </svg>
   );
 }
+
+function PageIcon(props) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+      <polyline points="14 2 14 8 20 8" />
+    </svg>
+  );
+}
+
 
 function LightbulbIcon(props) {
   return (

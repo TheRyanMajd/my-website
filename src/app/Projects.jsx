@@ -6,6 +6,7 @@ import EC from "../../public/eventcast.png";
 import jChristmas from "../../public/javaChristmasProject.png";
 import linkedin from "../../public/linkedin.jpeg";
 import picto from "../../public/picto.png";
+import truck from "../../public/truck.jpeg";
 import ProjectCard from "./ProjectCards";
 export default function Project() {
     return (
@@ -20,6 +21,14 @@ export default function Project() {
       </section>
 <section className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:p-6">
 
+<ProjectCard
+title="TravelByte Inc."
+description="Co-Founded TravelByte, a software solution for trucking and logistics operations under the Fusen Fellowship."
+linkHref="https://travelbyte.net"
+imageUrl={truck}
+favorite="yes"
+year={"2024"}
+/>
 
 <ProjectCard
 title="imgToICS"
