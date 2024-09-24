@@ -1,5 +1,8 @@
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from 'react';
 import banner from "../../public/banner.svg";
 import BPj from "../../public/BPjavathumbnail.png";
 import EC from "../../public/eventcast.png";
@@ -8,18 +11,31 @@ import linkedin from "../../public/linkedin.jpeg";
 import picto from "../../public/picto.png";
 import truck from "../../public/truck.jpeg";
 import ProjectCard from "./ProjectCards";
+
+export const AOSInit = () => {
+  useEffect(() => {
+    AOS.init({
+      easing: "ease-out-quad",
+      duration: 1000,
+      once: false,
+    });
+  }, []);
+
+  return null;
+};
 export default function Project() {
     return (
       <>
       <section className="my-8">
+        <AOSInit/>
         <div
               className="flex flex-col items-center justify-center space-y-4 text-center">
-              <div className="space-y-2">
+              <div className="space-y-2" data-aos='flip-up' data-aos-duration='400'>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">Explore my Projects</h2>
               </div>
             </div>
       </section>
-<section className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:p-6">
+<section className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:p-6" data-aos='fade-in' data-aos-duration='800'>
 
 <ProjectCard
 title="TravelByte Inc."

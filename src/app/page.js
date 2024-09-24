@@ -1,12 +1,25 @@
 'use client'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from 'react';
+import { TypeAnimation } from 'react-type-animation';
 import vers from "../../package.json";
 import pfp from "../../public/bruhpfp.jpg";
 import Projects from "./Projects";
 
- 
+export const AOSInit = () => {
+  useEffect(() => {
+    AOS.init({
+      easing: "ease-out-quad",
+      duration: 1000,
+      once: false,
+    });
+  }, []);
+
+  return null;
+};
 export default function Home() {
    // Initialize mobile state as false
    const [mobile, setMobile] = useState(false);
@@ -26,6 +39,7 @@ export default function Home() {
    }, []);
   return (
     (<div key="1" className="flex flex-col min-h-[100dvh]">
+    <AOSInit />
       <header className="px-4 lg:px-6 h-14 flex items-center">
         {/* <button
           aria-label="Toggle light mode"
@@ -64,20 +78,45 @@ export default function Home() {
       <section className="align-center w-full py-4 md:py-8 lg:py-16 dotted">
   <div className="mx-auto container space-y-12 px-4 md:px-6 space-y-10 xl:space-y-16">
     <div className="grid max-w-[1300px] mx-auto gap-4 px-4 sm:px-6 md:grid-cols-2 md:gap-16">
-      <div className="px-auto text-center md:text-left col-span-1">
+      <div className="px-auto text-center md:text-left col-span-1" data-aos='fade-up' data-aos-duration='400'>
         <h1
           className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
-          Ryan Majd&apos;s Portfolio
+         Ryan Majd&apos;s&nbsp;
+  <TypeAnimation
+  className='sm:text-3xl md:text-4xl xl:text-[3.2rem] 2xl:text-[3.5rem]'
+    sequence={[
+      'Portfolio',
+      1500, // wait 1.5s
+      'Tech Projects',
+      1500,
+      'Professional Experience',
+      1500,
+      'Contact Information',
+      1500,
+      'Leadership Journey',
+      1500,
+      'Passion for Innovation',
+      1500,
+    ]}
+    wrapper="span"
+    speed={50}
+    style={{ display: 'block', color: '#EF5350' }} // Adjust the color as per your theme
+    repeat={Infinity}
+  />
         </h1>
         <p className="mx-auto my-4 max-w-[700px] text-gray-400 md:text-xl mb-4">
-        Ryan Majd, a tech-savvy CS student at the&nbsp; 
-        <Link
-            className="text-sm font-medium text-red-400 md:text-xl my-4 transition-all hover:font-bold underline-offset-4"
-            target="_blank"
-            href="https://www.uga.edu/">
-            University of Georgia
-          </Link>, specializes in website development, GitHub, and Java. Proficient in navigating Unix systems and creating Unity worlds, my journey merges code, creativity, and a passion for pushing technological boundaries. 🚀
-        </p>
+    Ryan Majd, a tech-savvy CS student at the&nbsp; 
+    <Link
+        className="text-sm font-medium text-red-400 md:text-xl my-4 transition-all hover:font-bold underline-offset-4"
+        target="_blank"
+        href="https://www.uga.edu/">
+        University of Georgia
+      </Link>, is a developer specializing in front-end development, Systems Programming, and Artifical Intelligence. As the founding President of <Link className="text-sm font-medium text-blue-400 md:text-xl my-4 transition-all hover:font-bold underline-offset-4"
+        target="_blank"
+        href="https://www.ktpgeorgia.com/">Kappa Theta Pi</Link> at UGA, I’ve demonstrated leadership in professional development within technology. My journey blends code, creativity, and a commitment to advancing technological frontiers. 🚀
+
+</p>
+
         <div className="space-x-4 mb-4">
           <Link
             className="inline-flex h-9 items-center hover:animate-bounce rounded-md bg-black px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-gray-500 shitbutton"
@@ -94,7 +133,7 @@ export default function Home() {
           <p className="my-2 text-gray-400 md:text-xl mb-2">Version: {vers.version}</p>
         </div>
       </div>
-      <div className="mx-auto text-center md:text-right col-span-1"> 
+      <div className="mx-auto text-center md:text-right col-span-1" data-aos='fade-right' data-aos-duration='400'> 
       <h1
           className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
           Glad You&apos;re Here!
@@ -116,16 +155,16 @@ export default function Home() {
 </section>
 
 <section id= "projects">
-<Projects  />
+<Projects />
 </section>
         <section id = "skills" className="w-full py-2 md:py-4 lg:py-8 dotted">
           <div 
-            className="mx-auto container grid items-center justify-center gap-4 px-4 text-center md:px-6 py-8">
+            className="mx-auto container grid items-center justify-center gap-4 px-4 text-center md:px-6 py-8" >
             <div className="space-y-3">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">My Skills</h2>
+              <h2 className="text-3xl space-y-4 font-bold tracking-tighter sm:text-4xl md:text-5xl" data-aos='flip-up' data-aos-duration='400'>My Skills</h2>
             </div>
             <div
-              className="mx-auto grid items-start gap-8 sm:max-w-4xl sm:grid-cols-2 md:gap-6 lg:max-w-5xl lg:grid-cols-5">
+              className="mx-auto grid items-start gap-8 sm:max-w-4xl sm:grid-cols-2 md:gap-6 lg:max-w-5xl lg:grid-cols-5" data-aos='fade-up' data-aos-duration='600'>
               <div className="flex flex-col items-center justify-center">
                 <BeanIcon className="h-6 w-6 mb-2 text-white" />
                 <span className="text-sm font-medium">Java</span>
@@ -172,16 +211,16 @@ export default function Home() {
 
 <section id="contact" className="bg-black-700 w-full">
   <div className="container mx-auto text-center px-4 md:px-6 py-8">
-    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Contact Me</h2>
+    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl" data-aos='flip-up' data-aos-duration='400'>Contact Me</h2>
     <div className="mt-8">
       <ul className="flex space-x-8 animate-slide  justify-center overflow-hidden h-12">
         <Link className="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="https://www.linkedin.com/in/ryan-majd/">
-        <li className="flex flex-col items-center justify-center">
+        <li className="flex flex-col items-center justify-center" data-aos='fade-left' data-aos-duration='400'>
           <LinkedinIcon className="h-6 w-6 mb-2 text-white" /> LinkedIn
         </li>
         </Link>
         <Link className="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="https://github.com/TheRyanMajd/">
-        <li className="flex flex-col items-center justify-center">
+        <li className="flex flex-col items-center justify-center" data-aos='fade-left' data-aos-duration='300'>
           <GithubIcon className="h-6 w-6 mb-2 text-white" /> GitHub
         </li>
         </Link>
@@ -193,16 +232,17 @@ export default function Home() {
         </Link>
         
         <Link className="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="tel:+16786771014">
-        <li className=" flex flex-col items-center justify-center">
+        <li className=" flex flex-col items-center justify-center" data-aos='fade-right' data-aos-duration='300'>
           <PhoneIcon className="h-6 w-6 mb-2 text-white" />
           <span className="text-sm font-medium">(678) 677-1014</span>
         </li>
         </Link>
         <Link className="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="mailto:ryan.majd@uga.edu">
-        <li className=" flex flex-col items-center justify-center">
+        <li className=" flex flex-col items-center justify-center" data-aos='fade-right' data-aos-duration='400'>
           <MailIcon className="h-6 w-6 mb-2 text-white" />
+          Email
         </li>
-        Email</Link>
+        </Link>
       </ul>
     </div>
   </div>
