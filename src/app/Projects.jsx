@@ -7,6 +7,7 @@ import banner from "../../public/banner.svg";
 import BPj from "../../public/BPjavathumbnail.png";
 import EC from "../../public/eventcast.png";
 import jChristmas from "../../public/javaChristmasProject.png";
+import KTP from "../../public/ktp.png";
 import linkedin from "../../public/linkedin.jpeg";
 import picto from "../../public/picto.png";
 import truck from "../../public/truck.jpeg";
@@ -38,8 +39,17 @@ export default function Project() {
 <section className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:p-6" data-aos='fade-in' data-aos-duration='800'>
 
 <ProjectCard
+title="Kappa Theta Pi at UGA"
+description="Founded the Phi Chapter of Kappa Theta Pi, a co-ed professional technology fraternity at the University of Georgia. Led the establishment process, securing official recognition, building an executive board, and organizing recruitment, professional development events, and technical workshops to foster a strong community of aspiring technologists."
+linkHref="https://ktpGeorgia.com"
+imageUrl={KTP}
+favorite="yes"
+year={"2024"}
+/>
+
+<ProjectCard
 title="TravelByte Inc."
-description="Co-Founded TravelByte, a software solution for trucking and logistics operations under the Fusen Fellowship."
+description="Co-Founded TravelByte, a SaaS for trucking and logistics operations under the Fusen Fellowship. Currently building a MVP utilizing React Native and Google Cloud Platform."
 linkHref="https://travelbyte.net"
 imageUrl={truck}
 favorite="yes"
@@ -51,7 +61,6 @@ title="imgToICS"
 description="The imgToICS application is designed to convert images/flyers containing event details into ICS (iCalendar) files. It is programmed in Python and available in two formats: a graphical user interface (GUI) and a command line interface (CLI)."
 linkHref="https://github.com/TheRyanMajd/img-to-ics"
 imageUrl={banner}
-favorite="yes"
 year={"2024"}
 />
 

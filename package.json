@@ -1,7 +1,7 @@
 {
   "name": "my-website-v3.0",
-  "version": "3.1.0",
-  "homepage": "https://theryanmajd.github.io/my-website-v2.1",
+  "version": "3.2.0",
+  "homepage": "https://ryanmajd.com",
   "private": true,
   "scripts": {
     "predeploy": "npm run build",
@@ -20,6 +20,7 @@
     "next": "^14.2.15",
     "react": "^18",
     "react-dom": "^18",
+    "react-icons": "^5.5.0",
     "react-type-animation": "^3.2.0",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7"
