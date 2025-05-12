@@ -125,7 +125,7 @@ export default function Home() {
             className="inline-flex h-9 items-center hover:animate-bounce rounded-md bg-black px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-gray-500 shitbutton"
             target="_blank"
             href="https://github.com/TheRyanMajd/">    
-            {mobile ? 'Github' : 'Check out my Github'}
+            {mobile ? 'GitHub' : 'Check out my GitHub'}
           </Link>
           <Link
             className="inline-flex h-9 items-center hover:animate-bounce rounded-md bg-black px-4 py-2 text-sm  font-medium text-white shadow transition-colors hover:bg-gray-500 shitbutton"
