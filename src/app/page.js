@@ -78,7 +78,7 @@ export default function Home() {
     <div className="grid max-w-[1300px] mx-auto gap-4 px-4 sm:px-6 md:grid-cols-2 md:gap-16">
       <div className="px-auto text-center md:text-left col-span-1" data-aos="fade-up" data-aos-duration="400">
         <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
-          Hi, I'm
+          Hi, I&apos;m
           <TypeAnimation
             className="sm:text-3xl md:text-4xl xl:text-[3.2rem] 2xl:text-[3.5rem]"
             sequence={[
@@ -125,7 +125,7 @@ export default function Home() {
             target="_blank"
             href="https://www.macys.com"
           >
-            Macy's Tech
+            Macy&apos;s Tech
           </Link> 
           &nbsp;SWE intern, Tech director for <Link
             className="text-sm font-medium text-purple-900 md:text-xl my-4 transition-all hover:font-bold underline-offset-4"
