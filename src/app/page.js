@@ -44,11 +44,6 @@ export default function Home() {
     (<div key="1" className="flex flex-col min-h-[100dvh]">
     <AOSInit />
       <header className="px-4 lg:px-6 h-14 flex items-center">
-        {/* <button
-          aria-label="Toggle light mode"
-          className="h-6 w-4 mr-4 bg-gray-700 hover:bg-gray-600 rounded-md">
-          <LightbulbIcon className="h-4 w-4 text-white" />
-        </button> */}
         <Link className="flex items-center justify-center" href="#">
           <ComputerIcon className="h-6 w-6 text-white rounded-md items-center justify-center flex hover:animate-pulse" />
           <span className="sr-only">CS Portfolio</span>
@@ -78,84 +73,139 @@ export default function Home() {
 
       </header>
       <main className="flex-1"> 
-      <section className="align-center w-full py-4 md:py-8 lg:py-16 dotted">
-  <div className="mx-auto container space-y-12 px-4 md:px-6 space-y-10 xl:space-y-16">
+  <section className="align-center w-full py-4 md:py-8 lg:py-16 dotted">
+  <div className="mx-auto container space-y-12 px-4 md:px-6 xl:space-y-16">
     <div className="grid max-w-[1300px] mx-auto gap-4 px-4 sm:px-6 md:grid-cols-2 md:gap-16">
-      <div className="px-auto text-center md:text-left col-span-1" data-aos='fade-up' data-aos-duration='400'>
-        <h1
-          className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
-         Ryan Majd&apos;s&nbsp;
-  <TypeAnimation
-  className='sm:text-3xl md:text-4xl xl:text-[3.2rem] 2xl:text-[3.5rem]'
-    sequence={[
-      'Portfolio',
-      1500, // wait 1.5s
-      'Tech Projects',
-      1500,
-      'Professional Experience',
-      1500,
-      'Contact Information',
-      1500,
-      'Leadership Journey',
-      1500,
-      'Innovation',
-      1500,
-    ]}
-    wrapper="span"
-    speed={50}
-    style={{ display: 'block', color: '#EF5350' }} // Adjust the color as per your theme
-    repeat={Infinity}
-  />
+      <div className="px-auto text-center md:text-left col-span-1" data-aos="fade-up" data-aos-duration="400">
+        <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
+          Hi, I'm
+          <TypeAnimation
+            className="sm:text-3xl md:text-4xl xl:text-[3.2rem] 2xl:text-[3.5rem]"
+            sequence={[
+              'Ryan Majd',
+              2000,
+              'a Software Engineer',
+              1500,
+              'a Student Leader',
+              1500,
+              'an Innovator',
+              1500,
+              'a Problem Solver',
+              1500,
+              'a UGA CS & Math Student',
+              1500,
+              'a Tech Community Builder',
+              1500,
+            ]}
+            wrapper="span"
+            speed={50}
+            style={{ display: 'block', color: '#EF5350' }}
+            repeat={Infinity}
+          />
         </h1>
         <p className="mx-auto my-4 max-w-[700px] text-gray-400 md:text-xl mb-4">
-    Ryan Majd, a tech-savvy CS student at the&nbsp; 
-    <Link
-        className="text-sm font-medium text-red-400 md:text-xl my-4 transition-all hover:font-bold underline-offset-4"
-        target="_blank"
-        href="https://www.uga.edu/">
-        University of Georgia
-      </Link>, is a developer specializing in front-end development, Systems Programming, and Artifical Intelligence. As the founding President of <Link className="text-sm font-medium text-blue-400 md:text-xl my-4 transition-all hover:font-bold underline-offset-4"
-        target="_blank"
-        href="https://www.ktpgeorgia.com/">Kappa Theta Pi</Link> at UGA, I’ve demonstrated leadership in professional development within technology. My journey blends code, creativity, and a commitment to advancing technological frontiers. 🚀
-
-</p>
-
-        <div className="space-x-4 mb-4">
+          I&apos;m a Computer Science and Applied Math student at the&nbsp;
           <Link
-            className="inline-flex h-9 items-center hover:animate-bounce rounded-md bg-black px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-gray-500 shitbutton"
+            className="text-sm font-medium text-red-600 md:text-xl my-4 transition-all hover:font-bold underline-offset-4"
             target="_blank"
-            href="https://github.com/TheRyanMajd/">    
-            {mobile ? 'GitHub' : 'Check out my GitHub'}
+            href="https://www.uga.edu/"
+          >
+            University of Georgia
+          </Link>
+          , passionate about building impactful software, leadership, and advancing technology for good. Currently, I&apos;m the founding President of&nbsp;
+          <Link
+            className="text-sm font-medium text-blue-400 md:text-xl my-4 transition-all hover:font-bold underline-offset-4"
+            target="_blank"
+            href="https://www.ktpgeorgia.com/"
+          >
+            KTP: Phi Chapter
+          </Link>
+          , <Link
+            className="text-sm font-medium text-red-500 md:text-xl my-4 transition-all hover:font-bold underline-offset-4"
+            target="_blank"
+            href="https://www.macys.com"
+          >
+            Macy's Tech
+          </Link> 
+          &nbsp;SWE intern, Tech director for <Link
+            className="text-sm font-medium text-purple-900 md:text-xl my-4 transition-all hover:font-bold underline-offset-4"
+            target="_blank"
+            href="https://ugahacks.com"
+          >
+            UGAHacks
+          </Link>, and <Link
+            className="text-sm font-medium text-red-400 md:text-xl my-4 transition-all hover:font-bold underline-offset-4"
+            target="_blank"
+            href="https://githubcampus.expert/TheRyanMajd/"
+          >
+            GitHub Campus Expert
+          </Link>!<br />
+        </p>
+
+        <div className="space-x-4 mb-4 flex flex-wrap gap-2">
+          <Link
+            className="inline-flex h-9 items-center rounded-md bg-black px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-gray-700"
+            target="_blank"
+            href="https://github.com/TheRyanMajd/"
+          >
+            {mobile ? 'GitHub' : 'GitHub'}
           </Link>
           <Link
-            className="inline-flex h-9 items-center hover:animate-bounce rounded-md bg-black px-4 py-2 text-sm  font-medium text-white shadow transition-colors hover:bg-gray-500 shitbutton"
+            className="inline-flex h-9 items-center rounded-md bg-[#0072b1] px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-[#005580]"
             target="_blank"
-            href="https://www.linkedin.com/in/ryan-majd/">    
-            {mobile ? 'LinkedIn' : 'Connect on LinkedIn'}
+            href="https://www.linkedin.com/in/ryan-majd/"
+          >
+            {mobile ? 'LinkedIn' : 'LinkedIn'}
           </Link>
-          <p className="my-2 text-gray-400 md:text-xl mb-2">Version: {vers.version}</p>
+          <Link
+            className="inline-flex h-9 items-center rounded-md bg-gray-600 px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-gray-500"
+            href="/#resume"
+            rel="noopener"
+          >
+            Resume
+          </Link>
+        </div>
+        <div className="my-2 text-gray-400 md:text-base mb-2">
+          {/* Example version badge */}
+          <span>v{vers.version} — <span className="text-green-400">Actively seeking entry level SWE roles</span></span>
         </div>
       </div>
-      <div className="mx-auto text-center md:text-right col-span-1" data-aos='fade-right' data-aos-duration='400'> 
-      <h1
-          className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
-          Glad You&apos;re Here!
+      <div className="mx-auto text-center md:text-right col-span-1" data-aos="fade-right" data-aos-duration="400">
+        <h1 className="lg:leading-tighter text-2xl font-semibold tracking-tighter sm:text-3xl md:text-4xl xl:text-[2.2rem] 2xl:text-[2.75rem] mb-2">
+          Welcome to My Digital Space!
         </h1>
         <Image
-      alt="Image of Me"
-      className="mx-auto my-4 rounded-lg shadow-xl transition-all hover:shadow-2xl"
-      src={pfp}
-      style={{
-        objectFit: "cover",
-        width: "100%", /* Responsive width */
-        maxWidth: "300px", /* Max width */
-        height: "auto" /* Maintain aspect ratio */
-      }}
-    />
-        </div>
+          alt="Ryan Majd"
+          className="mx-auto my-4 rounded-lg shadow-xl transition-all hover:shadow-2xl"
+          src={pfp}
+          style={{
+            objectFit: 'cover',
+            width: '100%',
+            maxWidth: '300px',
+            height: 'auto',
+          }}
+        />
+        {/* <div className="flex justify-center md:justify-end gap-2 mt-4">
+          <Link
+            href="https://www.ktpgeorgia.com/"
+            target="_blank"
+            className="text-xs px-3 py-1 bg-blue-500/80 rounded-md font-semibold text-white shadow hover:bg-blue-700"
+          >
+            KTP at UGA
+          </Link>
+          <Link
+            href="https://githubcampus.expert/TheRyanMajd/"
+            target="_blank"
+            className="text-xs px-3 py-1 bg-pink-500/80 rounded-md font-semibold text-white shadow hover:bg-pink-700"
+          >
+            GitHub Campus Expert
+          </Link>
+        </div> */}
+      </div>
     </div>
   </div>
 </section>
+
 
 <section id= "projects">
 <Projects />

@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import banner from "../../public/banner.svg";
 import BPj from "../../public/BPjavathumbnail.png";
 import EC from "../../public/eventcast.png";
+import ghce from "../../public/ghce.png";
 import jChristmas from "../../public/javaChristmasProject.png";
 import KTP from "../../public/ktp.png";
 import linkedin from "../../public/linkedin.jpeg";
@@ -37,14 +38,20 @@ export default function Project() {
             </div>
       </section>
 <section className="grid grid-cols-1 gap-4 p-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 md:p-6" data-aos='fade-in' data-aos-duration='800'>
+<ProjectCard
+title="GitHub Campus Expert"
+description="Selected as one of a few hundred student leaders worldwide trained by GitHub to build diverse, inclusive tech communities. I design and run workshops, hackathons, and open-source initiatives at UGA—bridging classroom theory with real-world collaboration while giving peers access to GitHub resources and mentorship."
+linkHref="https://githubcampus.expert/TheRyanMajd//"
+imageUrl={ghce}
+year={"2025"}
+/>
 
 <ProjectCard
 title="Kappa Theta Pi at UGA"
 description="Founded the Phi Chapter of Kappa Theta Pi, a co-ed professional technology fraternity at the University of Georgia. Led the establishment process, securing official recognition, building an executive board, and organizing recruitment, professional development events, and technical workshops to foster a strong community of aspiring technologists."
 linkHref="https://ktpGeorgia.com"
 imageUrl={KTP}
-favorite="yes"
-year={"2024"}
+year={"est. 2024"}
 />
 
 <ProjectCard
@@ -52,8 +59,7 @@ title="TravelByte Inc."
 description="Co-Founded TravelByte, a SaaS for trucking and logistics operations under the Fusen Fellowship. Currently building a MVP utilizing React Native and Google Cloud Platform."
 linkHref="https://travelbyte.net"
 imageUrl={truck}
-favorite="yes"
-year={"2024"}
+year={"est. 2024"}
 />
 
 <ProjectCard
