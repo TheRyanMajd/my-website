@@ -5,7 +5,7 @@ import React from 'react';
 function ProjectCard({ title, description, imageUrl, linkHref, favorite, year}) {
   return ( //relative overflow-hidden rounded-lg group anim-border p-1 m-1 max-w-xs max-h-48 text-sm
     
-    <div className="relative overflow-hidden rounded-lg group anim-border">
+    <div className="relative overflow-hidden rounded-lg group anim-border bg-purple-900/30 backdrop-blur-sm">
       <Link href={linkHref} target="_blank" className="absolute inset-0 z-10" prefetch={false}>
         <span className="sr-only">View Project</span>
       </Link>
