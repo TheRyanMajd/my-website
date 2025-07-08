@@ -5,33 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from 'react';
 import {
-  FaClock,
-  FaCloud, // docker
-  FaCloudUploadAlt,
-  FaCode,
-  FaCodeBranch,
-  FaCogs,
-  FaDatabase,
-  FaDesktop, // python
-  FaDocker,
-  FaGithub,
-  FaGlobe, // cloud-run
-  FaGoogle,
-  // --- existing icons you already had ---
-  FaJava,
-  FaJs, // gcp
-  FaLeaf,
-  FaLightbulb, // mongodb leaf
-  FaProjectDiagram,
-  // --- NEW icons ---
-  FaPython,
-  FaRobot,
-  FaRuler,
-  FaServer, // drawio / architecture diagrams
-  FaStream, // algorithms & DS
-  FaTerminal,
-  FaUnity,
-  FaUsers
+  FaClock, FaCloud, FaCloudUploadAlt, FaCode, FaCodeBranch, FaCogs, FaDatabase, FaDesktop, FaDocker, FaGithub, FaGlobe, FaGoogle, FaJava, FaJs, FaLeaf, FaLightbulb, FaProjectDiagram, FaPython, FaRobot, FaRuler, FaServer, FaStream, FaTerminal, FaUnity, FaUsers
 } from 'react-icons/fa';
 import { FaEnvelope, FaLinkedin, FaPhone, FaXTwitter } from "react-icons/fa6";
 import { TypeAnimation } from 'react-type-animation';
@@ -39,7 +13,6 @@ import vers from "../../package.json";
 import pfp from "../../public/pfp1080.jpg";
 import Projects from "./Projects";
 import DotGrid from './components/DotGrid/DotGrid';
-
 
 export const AOSInit = () => {
   useEffect(() => {
@@ -49,449 +22,262 @@ export const AOSInit = () => {
       once: false,
     });
   }, []);
-
   return null;
 };
+
 export default function Home() {
-   // Initialize mobile state as false
-   const [mobile, setMobile] = useState(false);
+  const [mobile, setMobile] = useState(false);
+  useEffect(() => {
+    const updateMobile = () => setMobile(window.innerWidth < 599);
+    updateMobile();
+    window.addEventListener('resize', updateMobile);
+    return () => window.removeEventListener('resize', updateMobile);
+  }, []);
 
-   useEffect(() => {
-     // Update the mobile state based on window width
-     const updateMobile = () => setMobile(window.innerWidth < 599);
- 
-     // Call once to set initial state based on current window width
-     updateMobile();
- 
-     // Setup event listener for resizing the window
-     window.addEventListener('resize', updateMobile);
- 
-     // Cleanup the event listener when the component unmounts
-     return () => window.removeEventListener('resize', updateMobile);
-   }, []);
+  // Remove auto-cycling logic
+
   return (
-    (<div key="1" className="flex flex-col min-h-[100dvh]">
-    <AOSInit />
-      <header className="px-4 lg:px-6 h-14 flex items-center backdrop-blur-sm">
-        <Link className="flex items-center justify-center" href="#">
-          <ComputerIcon className="h-6 w-6 text-white rounded-md items-center justify-center flex hover:animate-pulse" />
-          <span className="sr-only">CS Portfolio</span>
-        </Link>
-        <nav className="ml-auto flex gap-4 sm:gap-6">
-          <Link
-            className="text-sm font-medium text-gray-300 transition-all hover:font-bold underline-offset-4 hover:animate-bounce"
-            href="#projects"> 
-            Projects
+    <div className="flex flex-col min-h-screen bg-gradient-to-br from-[#1a1333] via-[#2d1e4f] to-[#3e2768] text-white">
+      <AOSInit />
+      {/* Header */}
+      <header className="sticky top-0 z-30 w-full bg-black/40 backdrop-blur-md shadow-md">
+        <div className="container mx-auto flex items-center justify-between px-4 py-3">
+          <Link className="flex items-center gap-2" href="#">
+            <ComputerIcon className="h-7 w-7 text-purple-400" />
+            <span className="font-bold text-lg tracking-tight hidden sm:inline">Ryan Majd</span>
           </Link>
-          <Link
-            className="text-sm font-medium text-gray-300 transition-all hover:font-bold underline-offset-4 hover:animate-spin"
-            href="#skills">
-            Skills
-          </Link>
-          <Link
-            className="text-sm font-medium text-gray-300 transition-all hover:font-bold underline-offset-4 hover:animate-ping"
-            href="#contact">
-            Contact
-          </Link>
-          <Link
-            className="text-sm font-medium text-gray-300 transition-all hover:font-bold underline-offset-4 hover:animate-pulse"
-            href="#resume">
-            Resume
-          </Link>
-        </nav>
-
+          <nav className="flex gap-4 sm:gap-6">
+            <NavLink href="#projects" label="Projects" />
+            <NavLink href="#skills" label="Skills" />
+            <NavLink href="#contact" label="Contact" />
+            <NavLink href="#resume" label="Resume" />
+          </nav>
+        </div>
       </header>
-      <main className="flex-1 relative overflow-hidden">
+
+      {/* Hero Section */}
+      <main className="flex-1 relative">
         <div className="fixed inset-0 -z-10 pointer-events-none">
-    <DotGrid
-      dotSize={4}
-      gap={15}
-      baseColor="#5f43b2"
-      activeColor="#ffffff2c"
-      proximity={120}
-      shockRadius={250}
-      shockStrength={5}
-      resistance={750}
-      returnDuration={1.5}
-    />
-  </div>
-  <section className="align-center w-full py-4 md:py-8 lg:py-16">
-<div className="bg-purple-900/30 backdrop-blur-sm  rounded-xl p-6 shadow-lg">
-  <div className="mx-auto container space-y-12 px-4 md:px-6 xl:space-y-16">
-    <div className="grid max-w-[1300px] mx-auto gap-4 px-4 sm:px-6 md:grid-cols-2 md:gap-16">
-      <div className="px-auto text-center md:text-left col-span-1" data-aos="fade-up" data-aos-duration="400">
-        <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
-          <TypeAnimation
-            className="sm:text-2xl md:text-3xl xl:text-[3.2rem] 2xl:text-[3.5rem]"
-            sequence={[
-  'Ryan Majd',       2000,
-  'Software Engineer',1500,
-  'CTO, TravelByte', 1500,
-  'KTP President',   1500,
-  'GitHub Expert',   1500,
-  'UGAHacks Lead',   1500,
-  'Community Builder',1500,
-            ]}
-            wrapper="span"
-            speed={50}
-            style={{ display: 'block', color: '#EF5350' }}
-            repeat={Infinity}
+          <DotGrid
+            dotSize={4}
+            gap={15}
+            baseColor="#5f43b2"
+            activeColor="#ffffff2c"
+            proximity={120}
+            shockRadius={250}
+            shockStrength={5}
+            resistance={750}
+            returnDuration={1.5}
           />
-        </h1>
-        <p className="mx-auto my-4 max-w-[700px] text-gray-400 md:text-xl mb-4">
-          I&apos;m a Computer Science and Applied Math student at the&nbsp;
-          <Link
-            className="text-sm font-medium text-red-600 md:text-xl my-4 transition-all hover:font-bold underline-offset-4"
-            target="_blank"
-            href="https://www.uga.edu/"
-          >
-            University of Georgia
-          </Link>
-          , passionate about building impactful software, leadership, and advancing technology for good. Currently, I&apos;m the founding President of&nbsp;
-          <Link
-            className="text-sm font-medium text-blue-400 md:text-xl my-4 transition-all hover:font-bold underline-offset-4"
-            target="_blank"
-            href="https://www.ktpgeorgia.com/"
-          >
-            KTP: Phi Chapter
-          </Link>
-          , <Link
-            className="text-sm font-medium text-red-500 md:text-xl my-4 transition-all hover:font-bold underline-offset-4"
-            target="_blank"
-            href="https://www.macys.com"
-          >
-            Macy&apos;s Tech
-          </Link> 
-          &nbsp;SWE intern, Tech director for <Link
-            className="text-sm font-medium text-purple-900 md:text-xl my-4 transition-all hover:font-bold underline-offset-4"
-            target="_blank"
-            href="https://ugahacks.com"
-          >
-            UGAHacks
-          </Link>, and <Link
-            className="text-sm font-medium text-red-400 md:text-xl my-4 transition-all hover:font-bold underline-offset-4"
-            target="_blank"
-            href="https://githubcampus.expert/TheRyanMajd/"
-          >
-            GitHub Campus Expert
-          </Link>!<br />
-        </p>
-
-        <div className="space-x-4 mb-4 flex flex-wrap gap-2">
-          <Link
-            className="inline-flex h-9 items-center rounded-md bg-black px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-gray-700 anim-border"
-            target="_blank"
-            href="https://github.com/TheRyanMajd/"
-          >
-            {mobile ? 'GitHub' : 'Add me on GitHub'}
-          </Link>
-          <Link
-            className="inline-flex h-9 items-center rounded-md bg-[#0072b1] px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-[#005580] anim-border"
-            target="_blank"
-            href="https://www.linkedin.com/in/ryan-majd/"
-          >
-            {mobile ? 'LinkedIn' : 'Connect with me on LinkedIn'}
-          </Link>
-          <Link
-            className="inline-flex h-9 items-center rounded-md bg-purple-600 px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-purple-800 anim-border"
-            href="/#resume"
-            rel="noopener"
-          >
-            Resume
-          </Link>
         </div>
-        <div className="my-2 text-gray-400 md:text-base mb-2">
-          {/* Example version badge */}
-          <span>v{vers.version} — <span className="text-green-400">Actively seeking entry level SWE roles</span></span>
-        </div>
-      </div>
-      <div className="mx-auto text-center md:text-right col-span-1" data-aos="fade-right" data-aos-duration="400">
-        <h1 className="lg:leading-tighter text-2xl font-semibold tracking-tighter sm:text-3xl md:text-4xl xl:text-[2.2rem] 2xl:text-[2.75rem] mb-2">
-          Welcome to My Website!
-        </h1>
-        <Image
-          alt="Ryan Majd"
-          className="mx-auto my-4 rounded-lg shadow-xl transition-all hover:scale-100"
-          src={pfp}
-          style={{
-            objectFit: 'cover',
-            width: '100%',
-            maxWidth: '300px',
-            height: 'auto',
-          }}
-        />
-        {/* <div className="flex justify-center md:justify-end gap-2 mt-4">
-          <Link
-            href="https://www.ktpgeorgia.com/"
-            target="_blank"
-            className="text-xs px-3 py-1 bg-blue-500/80 rounded-md font-semibold text-white shadow hover:bg-blue-700"
-          >
-            KTP at UGA
-          </Link>
-          <Link
-            href="https://githubcampus.expert/TheRyanMajd/"
-            target="_blank"
-            className="text-xs px-3 py-1 bg-pink-500/80 rounded-md font-semibold text-white shadow hover:bg-pink-700"
-          >
-            GitHub Campus Expert
-          </Link>
-        </div> */}
-      </div>
-    </div>
-  </div>
-  </div>
-
-</section>
-
-
-<section id= "projects">
-<Projects />
-</section>
-        <section id = "skills" className="w-full py-2 md:py-4 lg:py-8 dottedREP bg-purple-900/30 backdrop-blur-sm">
-          <div 
-            className="mx-auto container grid items-center justify-center gap-4 px-4 text-center md:px-6 py-8" >
-            <div className="space-y-3">
-              <h2 className="text-3xl space-y-4 font-bold tracking-tighter sm:text-4xl md:text-5xl" data-aos='flip-up' data-aos-duration='400'>My Skills</h2>
-             <p
-    className="text-base italic text-gray-300"
-    data-aos="fade-right"
-    data-aos-delay="200"
-  >
-    Always learning, always leveling up 🚀
-  </p>
+        <section className="flex flex-col md:flex-row items-center justify-center gap-10 py-16 md:py-24 px-4 max-w-6xl mx-auto">
+          <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left gap-6 bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-white/10" data-aos="fade-up">
+            <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+              <TypeAnimation
+                className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-red-400"
+                sequence={[
+                  'Ryan Majd', 2000,
+                  'Software Engineer', 1500,
+                  'CTO, TravelByte', 1500,
+                  'KTP President', 1500,
+                  'GitHub Expert', 1500,
+                  'UGAHacks Lead', 1500,
+                  'Community Builder', 1500,
+                ]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+              />
+            </h1>
+            <p className="text-lg text-gray-200 max-w-xl">
+              I&apos;m a Computer Science and Applied Math student at the&nbsp;
+              <Link className="text-red-400 font-semibold hover:underline" target="_blank" href="https://www.uga.edu/">University of Georgia</Link>, passionate about building impactful software, leadership, and advancing technology for good. Currently, I&apos;m the founding President of&nbsp;
+              <Link className="text-blue-400 font-semibold hover:underline" target="_blank" href="https://www.ktpgeorgia.com/">KTP: Phi Chapter</Link>, <Link className="text-red-500 font-semibold hover:underline" target="_blank" href="https://www.macys.com">Macy&apos;s Tech</Link> SWE intern, Tech director for <Link className="text-purple-400 font-semibold hover:underline" target="_blank" href="https://ugahacks.com">UGAHacks</Link>, and <Link className="text-pink-400 font-semibold hover:underline" target="_blank" href="https://githubcampus.expert/TheRyanMajd/">GitHub Campus Expert</Link>!
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <ActionLink href="https://github.com/TheRyanMajd/" color="bg-black hover:bg-gray-800" label={mobile ? 'GitHub' : 'Add me on GitHub'} />
+              <ActionLink href="https://www.linkedin.com/in/ryan-majd/" color="bg-[#0072b1] hover:bg-[#005580]" label={mobile ? 'LinkedIn' : 'Connect with me on LinkedIn'} />
+              <ActionLink href="/#resume" color="bg-purple-600 hover:bg-purple-800" label="Resume" />
             </div>
-            <div
-              className=" mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 lg:max-w-5xl items-start" data-aos='fade-up' data-aos-duration='600'>
-             {/* ---------------- LANGUAGES ---------------- */}
-<div className="flex flex-col items-center justify-center">
-  <FaJava  className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">Java</span>
-</div>
-<div className="flex flex-col items-center justify-center">
-  <FaJs className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">JavaScript</span>
-</div>
-<div className="flex flex-col items-center justify-center">
-  <FaPython className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">Python</span>
-</div>
-<div className="flex flex-col items-center justify-center">
-  <FaTerminal className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">C & C++</span>
-</div>
+            <span className="text-sm text-green-400">v{vers.version} — Actively seeking entry level SWE roles</span>
+          </div>
+          <div className="flex-1 flex flex-col items-center gap-4" data-aos="fade-left">
+            <Image
+              alt="Ryan Majd"
+              className="rounded-full shadow-2xl border-4 border-purple-400"
+              src={pfp}
+              width={240}
+              height={240}
+              style={{ objectFit: 'cover' }}
+              priority
+            />
+            <h2 className="text-2xl font-semibold mt-2">Welcome to My Website!</h2>
+          </div>
+        </section>
 
-{/* ------------ WEB / BACKEND --------------- */}
-<div className="flex flex-col items-center justify-center">
-  <FaCode className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">Web Development</span>
-</div>
-<div className="flex flex-col items-center justify-center">
-  <FaGlobe className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">Next.js & React</span>
-</div>
-<div className="flex flex-col items-center justify-center">
-  <FaServer className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">Node.js & Express</span>
-</div>
-<div className="flex flex-col items-center justify-center">
-  <FaCogs className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">RESTful APIs</span>
-</div>
+        {/* Projects Section */}
+        <section id="projects" className="py-12 md:py-20 px-4 max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-purple-400 via-pink-400 to-red-400 bg-clip-text text-transparent" data-aos="flip-up">Projects</h2>
+          <Projects />
+        </section>
 
-{/* ------------- CLOUD / DEVOPS ------------- */}
-<div className="flex flex-col items-center justify-center">
-  <FaCloud className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">AWS Cloud</span>
-</div>
-<div className="flex flex-col items-center justify-center">
-  <FaGoogle className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">Google Cloud Platform</span>
-</div>
-<div className="flex flex-col items-center justify-center">
-  <FaCloudUploadAlt className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">Cloud Run</span>
-</div>
-<div className="flex flex-col items-center justify-center">
-  <FaDocker className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">Docker</span>
-</div>
-
-{/* ----------------- DATA ------------------- */}
-<div className="flex flex-col items-center justify-center">
-  <FaDatabase className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">BigQuery</span>
-</div>
-<div className="flex flex-col items-center justify-center">
-  <FaLeaf className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">MongoDB</span>
-</div>
-
-{/* ------- COLLABORATION & TOOLING -------- */}
-<div className="flex flex-col items-center justify-center">
-  <FaGithub className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">Git/GitHub/GitLab</span>
-</div>
-<div className="flex flex-col items-center justify-center">
-  <FaProjectDiagram className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">DrawIO & Diagrams</span>
-</div>
-
-{/* ---------- SPECIALTIES & OTHER ---------- */}
-<div className="flex flex-col items-center justify-center">
-  <FaRobot className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">AI & Machine Learning</span>
-</div>
-<div className="flex flex-col items-center justify-center">
-  <FaUnity className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">Unity 3D</span>
-</div>
-<div className="flex flex-col items-center justify-center">
-  <FaStream className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">Algorithms & Data Structures</span>
-</div>
-<div className="flex flex-col items-center justify-center">
-  <FaDesktop className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">Operating Systems</span>
-</div>
-<div className="flex flex-col items-center justify-center">
-  <FaCodeBranch className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">Unix & Linux</span>
-</div>
-
-{/* -------------- SOFT SKILLS -------------- */}
-<div className="flex flex-col items-center justify-center">
-  <FaRuler className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">Leadership</span>
-</div>
-<div className="flex flex-col items-center justify-center">
-  <FaUsers className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">Teamwork</span>
-</div>
-<div className="flex flex-col items-center justify-center">
-  <FaLightbulb className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">Creativity</span>
-</div>
-<div className="flex flex-col items-center justify-center">
-  <FaClock className="h-6 w-6 mb-2 text-white" />
-  <span className="text-sm font-medium">Time Management</span>
-</div>
+        {/* Skills Section with Infinite Horizontal Scroll (Marquee) */}
+        <section id="skills" className="py-12 md:py-20 px-4 max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-purple-400 via-pink-400 to-red-400 bg-clip-text text-transparent" data-aos="flip-up">My Skills</h2>
+          <p className="text-base italic text-gray-300 text-center mb-8" data-aos="fade-right">Always learning, always leveling up 🚀</p>
+          <div className="overflow-hidden w-full">
+            {/* Row 1 */}
+            <div className="relative w-full flex flex-nowrap whitespace-nowrap mb-4 group" style={{ maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)' }}>
+              <div className="flex animate-marquee gap-6">
+                {skillsList.concat(skillsList).map(({ icon: Icon, label }, i) => (
+                  <div key={label + '-row1-' + i} className="flex flex-col items-center justify-center bg-white/5 rounded-xl p-4 shadow min-w-[120px] mx-2">
+                    <Icon className="h-7 w-7 mb-2 text-white" />
+                    <span className="text-sm font-medium text-center max-w-[120px] min-w-[80px] truncate whitespace-nowrap block">{label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            {/* Row 2 (offset) */}
+            <div className="relative w-full flex flex-nowrap whitespace-nowrap group" style={{ maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)' }}>
+              <div className="flex animate-marquee2 gap-6">
+                {(() => {
+                  const half = Math.floor(skillsList.length / 2);
+                  const offsetSkills = skillsList.slice(half).concat(skillsList.slice(0, half));
+                  return offsetSkills.concat(offsetSkills).map(({ icon: Icon, label }, i) => (
+                    <div key={label + '-row2-' + i} className="flex flex-col items-center justify-center bg-white/5 rounded-xl p-4 shadow min-w-[120px] mx-2">
+                      <Icon className="h-7 w-7 mb-2 text-white" />
+                      <span className="text-sm font-medium text-center max-w-[120px] min-w-[80px] truncate whitespace-nowrap block">{label}</span>
+                    </div>
+                  ));
+                })()}
+              </div>
             </div>
           </div>
         </section>
 
-        <section id="contact" className="bg-black-700 w-full">
-  <div className="container mx-auto text-center px-4 md:px-6 py-8">
-    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl" data-aos='flip-up' data-aos-duration='400'>Contact Me</h2>
-    <div className="mt-8">
-      <ul className="flex space-x-8 animate-slide justify-center overflow-hidden h-12">
-        
-        <Link className="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="https://www.linkedin.com/in/ryan-majd/">
-          <li className="flex flex-col items-center justify-center" data-aos='fade-left' data-aos-duration='400'>
-            <FaLinkedin className="h-6 w-6 mb-2 text-white" />
-            LinkedIn
-          </li>
-        </Link>
+        {/* Contact Section */}
+        <section id="contact" className="py-12 md:py-20 px-4 max-w-4xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-center bg-gradient-to-r from-purple-400 via-pink-400 to-red-400 bg-clip-text text-transparent" data-aos="flip-up">Contact Me</h2>
+          <ul className="flex flex-wrap justify-center gap-8">
+            {contactLinks.map(({ href, icon: Icon, label }, i) => (
+              <li key={label} className="flex flex-col items-center gap-2 hover:scale-110 transition-transform" data-aos="fade-up" data-aos-delay={i * 60}>
+                <Link href={href} target="_blank" className="text-white text-2xl p-3 rounded-full bg-purple-700/60 hover:bg-purple-500/80 shadow-lg">
+                  <Icon className="h-7 w-7" />
+                </Link>
+                <span className="text-sm font-medium mt-1">{label}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
 
-        <Link className="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="https://github.com/TheRyanMajd/">
-          <li className="flex flex-col items-center justify-center" data-aos='fade-left' data-aos-duration='300'>
-            <FaGithub className="h-6 w-6 mb-2 text-white" />
-            GitHub
-          </li>
-        </Link>
-
-        <Link className="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="https://x.com/theryanmajd">
-          <li className="flex flex-col items-center justify-center">
-            <FaXTwitter className="h-6 w-6 mb-2 text-white" />
-            𝕏
-          </li>
-        </Link>
-
-        <Link className="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="tel:+16786771014">
-          <li className="flex flex-col items-center justify-center" data-aos='fade-right' data-aos-duration='300'>
-            <FaPhone className="h-6 w-6 mb-2 text-white" />
-            <span className="text-sm font-medium">(678) 677-1014</span>
-          </li>
-        </Link>
-
-        <Link className="text-sm font-medium hover:font-bold underline-offset-4 text-gray-300 hover:animate-pulse" target="_blank" href="mailto:ryan.majd@uga.edu">
-          <li className="flex flex-col items-center justify-center" data-aos='fade-right' data-aos-duration='400'>
-            <FaEnvelope className="h-6 w-6 mb-2 text-white" />
-            Email
-          </li>
-        </Link>
-
-      </ul>
-    </div>
-  </div>
-</section>
-<section className="w-full py-8 md:py-12 lg:py-16 bg-purple-900/30 backdrop-blur-sm">
-  <div id="resume" className="container mx-auto px-4 md:px-6">
-    <div className="max-w-3xl mx-auto text-center space-y-8">
-      <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">
-        My Resume
-      </h2>
-      <p className="text-xl text-gray-400">
-        Take a look at my professional experience and qualifications.
-      </p>
-      <div className="flex justify-center space-x-4">
-      <Link
-          href="https://docs.google.com/document/d/12og3HniuDy5Nqm0LpAfb5dOaV5B-k4jn/edit?usp=sharing&ouid=102048050812793693879&rtpof=true&sd=true"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition duration-150 ease-in-out anim-border"
-        >
-          <Book className="w-5 h-5 mr-2" />
-          {mobile ? 'Google Doc' : 'View on Google Docs'}
-        </Link>
-        {/* <Link
-          href="https://drive.google.com/file/d/1DIbBT_PiEui-N5XDp05OYOiLYrCSmx0V/view?usp=sharing"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center px-6 py-3 border border-transparent text-base hover:animate-pulse font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition duration-150 ease-in-out"
-        >
-          <PageIcon className="w-5 h-5 mr-2" />
-          {mobile ? 'PDF' : 'View as PDF'}
-        </Link> */}
-      </div>
-      {/* <div className="relative overflow-hidden rounded-lg shadow-xl bg-white p-2 hide-on-mobile">
-        <div className="absolute inset-0 bg-gradient bg-black  animate-gradient-x"></div>
-        <iframe lazy="true"
-          title="Resume"
-          className="relative w-full h-full aspect-[8.5/14] md:aspect-[9/9] rounded-md"
-          src="https://docs.google.com/document/d/12og3HniuDy5Nqm0LpAfb5dOaV5B-k4jn/edit?usp=sharing&ouid=102048050812793693879&rtpof=true&sd=true"
-          style={{ minHeight: '500px', maxWidth: '1600px'}}
-        />
-      </div> */}
-      
-    </div>
-  </div>
-</section>
+        {/* Resume Section */}
+        <section id="resume" className="py-12 md:py-20 px-4 max-w-3xl mx-auto">
+          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-white/10 text-center">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-white">My Resume</h2>
+            <p className="text-lg text-gray-200 mb-6">Take a look at my professional experience and qualifications.</p>
+            <div className="flex justify-center">
+              <Link
+                href="https://docs.google.com/document/d/12og3HniuDy5Nqm0LpAfb5dOaV5B-k4jn/edit?usp=sharing&ouid=102048050812793693879&rtpof=true&sd=true"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition duration-150 ease-in-out anim-border"
+              >
+                <Book className="w-5 h-5 mr-2" />
+                {mobile ? 'Google Doc' : 'View on Google Docs'}
+              </Link>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer
-        className="flex flex-col gap-2 sm:flex-row py-6 w-full shrink-0 items-center px-4 md:px-6 border-t border-gray-700">
-        <p className="text-xs text-gray-400">© Ryan Majd. All rights reserved.</p>
-        <nav className="sm:ml-auto flex gap-4 sm:gap-6">
-          <Link
-            className="text-xs hover:underline underline-offset-4 text-gray-300 hover:animate-pulse"
-            href="https://www.linkedin.com/in/ryan-majd/">
-            LinkedIn
-          </Link>
-          <Link
-            className="text-xs hover:underline underline-offset-4 text-gray-300 hover:animate-pulse"
-            href="https://github.com/TheRyanMajd/">
-            GitHub
-          </Link>
-          <Link
-            className="text-xs hover:underline underline-offset-4 text-gray-300 hover:animate-pulse"
-            href="mailto:ryan.majd@uga.edu">
-            Email
-          </Link>
-        </nav>
+
+      {/* Footer */}
+      <footer className="w-full py-6 border-t border-gray-700 bg-black/40 backdrop-blur-md">
+        <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between px-4 gap-2">
+          <p className="text-xs text-gray-400">© Ryan Majd. All rights reserved.</p>
+          <nav className="flex gap-4">
+            <FooterLink href="https://www.linkedin.com/in/ryan-majd/" label="LinkedIn" />
+            <FooterLink href="https://github.com/TheRyanMajd/" label="GitHub" />
+            <FooterLink href="mailto:ryan.majd@uga.edu" label="Email" />
+          </nav>
+        </div>
       </footer>
-    </div>)
+    </div>
   );
 }
 
+// --- Helper Components ---
+function NavLink({ href, label }) {
+  return (
+    <Link
+      href={href}
+      className="text-sm font-medium text-gray-300 transition-all hover:font-bold underline-offset-4 hover:text-purple-400 hover:underline px-2 py-1 rounded"
+    >
+      {label}
+    </Link>
+  );
+}
+
+function ActionLink({ href, color, label }) {
+  return (
+    <Link
+      className={`inline-flex h-9 items-center rounded-md bg-black px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-gray-700 anim-border ${color}`}
+      target="_blank"
+      href={href}
+    >
+      {label}
+    </Link>
+  );
+}
+
+function FooterLink({ href, label }) {
+  return (
+    <Link
+      className="text-xs hover:underline underline-offset-4 text-gray-300 hover:animate-pulse"
+      href={href}
+      target={href.startsWith('http') ? '_blank' : undefined}
+    >
+      {label}
+    </Link>
+  );
+}
+
+// --- Data ---
+const skillsList = [
+  { icon: FaJava, label: 'Java' },
+  { icon: FaJs, label: 'JavaScript' },
+  { icon: FaPython, label: 'Python' },
+  { icon: FaTerminal, label: 'C & C++' },
+  { icon: FaCode, label: 'Web Development' },
+  { icon: FaGlobe, label: 'Next.js & React' },
+  { icon: FaServer, label: 'Node.js & Express' },
+  { icon: FaCogs, label: 'RESTful APIs' },
+  { icon: FaCloud, label: 'AWS Cloud' },
+  { icon: FaGoogle, label: 'Google Cloud Platform' },
+  { icon: FaCloudUploadAlt, label: 'Cloud Run' },
+  { icon: FaDocker, label: 'Docker' },
+  { icon: FaDatabase, label: 'BigQuery' },
+  { icon: FaLeaf, label: 'MongoDB' },
+  { icon: FaGithub, label: 'Git/GitHub/GitLab' },
+  { icon: FaProjectDiagram, label: 'DrawIO & Diagrams' },
+  { icon: FaRobot, label: 'AI & Machine Learning' },
+  { icon: FaUnity, label: 'Unity 3D' },
+  { icon: FaStream, label: 'Algorithms & Data Structures' },
+  { icon: FaDesktop, label: 'Operating Systems' },
+  { icon: FaCodeBranch, label: 'Unix & Linux' },
+  { icon: FaRuler, label: 'Leadership' },
+  { icon: FaUsers, label: 'Teamwork' },
+  { icon: FaLightbulb, label: 'Creativity' },
+  { icon: FaClock, label: 'Time Management' },
+];
+
+const contactLinks = [
+  { href: 'https://www.linkedin.com/in/ryan-majd/', icon: FaLinkedin, label: 'LinkedIn' },
+  { href: 'https://github.com/TheRyanMajd/', icon: FaGithub, label: 'GitHub' },
+  { href: 'https://x.com/theryanmajd', icon: FaXTwitter, label: '𝕏' },
+  { href: 'mailto:ryan.majd@uga.edu', icon: FaEnvelope, label: 'Email' },
+];
+
+// --- SVG Icon Components (ComputerIcon, Book, etc.) remain unchanged below ---
 function Book(props) {
   return (
     <svg
