@@ -2,7 +2,7 @@
 const nextConfig = { 
     output: 'export',
     images: {
-        unoptimized: true, // change to false when deploying
+        unoptimized: false, // change to false when deploying
     }
     }
     
