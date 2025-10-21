@@ -1,6 +1,6 @@
 {
   "name": "my-website-v3.0",
-  "version": "3.2.6",
+  "version": "3.2.7",
   "homepage": "https://ryanmajd.com",
   "private": true,
   "scripts": {
@@ -16,6 +16,7 @@
     "aos": "^2.3.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
+    "gsap": "^3.13.0",
     "lucide-react": "^0.303.0",
     "next": "^15.3.2",
     "react": "^18",

@@ -4,12 +4,41 @@ import 'aos/dist/aos.css';
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from 'react';
-import { FaClock, FaCloud, FaCode, FaCodeBranch, FaCogs, FaDatabase, FaDesktop, FaGithub, FaGlobe, FaJava, FaJs, FaLightbulb, FaProjectDiagram, FaRobot, FaRuler, FaServer, FaTerminal, FaUnity, FaUsers } from "react-icons/fa";
+import {
+  FaClock,
+  FaCloud, // docker
+  FaCloudUploadAlt,
+  FaCode,
+  FaCodeBranch,
+  FaCogs,
+  FaDatabase,
+  FaDesktop, // python
+  FaDocker,
+  FaGithub,
+  FaGlobe, // cloud-run
+  FaGoogle,
+  // --- existing icons you already had ---
+  FaJava,
+  FaJs, // gcp
+  FaLeaf,
+  FaLightbulb, // mongodb leaf
+  FaProjectDiagram,
+  // --- NEW icons ---
+  FaPython,
+  FaRobot,
+  FaRuler,
+  FaServer, // drawio / architecture diagrams
+  FaStream, // algorithms & DS
+  FaTerminal,
+  FaUnity,
+  FaUsers
+} from 'react-icons/fa';
 import { FaEnvelope, FaLinkedin, FaPhone, FaXTwitter } from "react-icons/fa6";
 import { TypeAnimation } from 'react-type-animation';
 import vers from "../../package.json";
 import pfp from "../../public/pfp1080.jpg";
 import Projects from "./Projects";
+import DotGrid from './components/DotGrid/DotGrid';
 
 
 export const AOSInit = () => {
@@ -43,7 +72,7 @@ export default function Home() {
   return (
     (<div key="1" className="flex flex-col min-h-[100dvh]">
     <AOSInit />
-      <header className="px-4 lg:px-6 h-14 flex items-center">
+      <header className="px-4 lg:px-6 h-14 flex items-center backdrop-blur-sm">
         <Link className="flex items-center justify-center" href="#">
           <ComputerIcon className="h-6 w-6 text-white rounded-md items-center justify-center flex hover:animate-pulse" />
           <span className="sr-only">CS Portfolio</span>
@@ -72,30 +101,36 @@ export default function Home() {
         </nav>
 
       </header>
-      <main className="flex-1"> 
-  <section className="align-center w-full py-4 md:py-8 lg:py-16 dotted">
+      <main className="flex-1 relative overflow-hidden">
+        <div className="fixed inset-0 -z-10 pointer-events-none">
+    <DotGrid
+      dotSize={4}
+      gap={15}
+      baseColor="#5f43b2"
+      activeColor="#ffffff2c"
+      proximity={120}
+      shockRadius={250}
+      shockStrength={5}
+      resistance={750}
+      returnDuration={1.5}
+    />
+  </div>
+  <section className="align-center w-full py-4 md:py-8 lg:py-16">
+<div className="bg-purple-900/30 backdrop-blur-sm  rounded-xl p-6 shadow-lg">
   <div className="mx-auto container space-y-12 px-4 md:px-6 xl:space-y-16">
     <div className="grid max-w-[1300px] mx-auto gap-4 px-4 sm:px-6 md:grid-cols-2 md:gap-16">
       <div className="px-auto text-center md:text-left col-span-1" data-aos="fade-up" data-aos-duration="400">
         <h1 className="lg:leading-tighter text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl xl:text-[3.4rem] 2xl:text-[3.75rem]">
-          Hi, I&apos;m
           <TypeAnimation
-            className="sm:text-3xl md:text-4xl xl:text-[3.2rem] 2xl:text-[3.5rem]"
+            className="sm:text-2xl md:text-3xl xl:text-[3.2rem] 2xl:text-[3.5rem]"
             sequence={[
-              'Ryan Majd',
-              2000,
-              'a Software Engineer',
-              1500,
-              'a Student Leader',
-              1500,
-              'an Innovator',
-              1500,
-              'a Problem Solver',
-              1500,
-              'a UGA CS & Math Student',
-              1500,
-              'a Tech Community Builder',
-              1500,
+  'Ryan Majd',       2000,
+  'Software Engineer',1500,
+  'CTO, TravelByte', 1500,
+  'KTP President',   1500,
+  'GitHub Expert',   1500,
+  'UGAHacks Lead',   1500,
+  'Community Builder',1500,
             ]}
             wrapper="span"
             speed={50}
@@ -144,21 +179,21 @@ export default function Home() {
 
         <div className="space-x-4 mb-4 flex flex-wrap gap-2">
           <Link
-            className="inline-flex h-9 items-center rounded-md bg-black px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-gray-700"
+            className="inline-flex h-9 items-center rounded-md bg-black px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-gray-700 anim-border"
             target="_blank"
             href="https://github.com/TheRyanMajd/"
           >
-            {mobile ? 'GitHub' : 'GitHub'}
+            {mobile ? 'GitHub' : 'Add me on GitHub'}
           </Link>
           <Link
-            className="inline-flex h-9 items-center rounded-md bg-[#0072b1] px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-[#005580]"
+            className="inline-flex h-9 items-center rounded-md bg-[#0072b1] px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-[#005580] anim-border"
             target="_blank"
             href="https://www.linkedin.com/in/ryan-majd/"
           >
-            {mobile ? 'LinkedIn' : 'LinkedIn'}
+            {mobile ? 'LinkedIn' : 'Connect with me on LinkedIn'}
           </Link>
           <Link
-            className="inline-flex h-9 items-center rounded-md bg-gray-600 px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-gray-500"
+            className="inline-flex h-9 items-center rounded-md bg-purple-600 px-4 py-2 text-sm font-medium text-white shadow transition-colors hover:bg-purple-800 anim-border"
             href="/#resume"
             rel="noopener"
           >
@@ -172,11 +207,11 @@ export default function Home() {
       </div>
       <div className="mx-auto text-center md:text-right col-span-1" data-aos="fade-right" data-aos-duration="400">
         <h1 className="lg:leading-tighter text-2xl font-semibold tracking-tighter sm:text-3xl md:text-4xl xl:text-[2.2rem] 2xl:text-[2.75rem] mb-2">
-          Welcome to My Digital Space!
+          Welcome to My Website!
         </h1>
         <Image
           alt="Ryan Majd"
-          className="mx-auto my-4 rounded-lg shadow-xl transition-all hover:shadow-2xl"
+          className="mx-auto my-4 rounded-lg shadow-xl transition-all hover:scale-100"
           src={pfp}
           style={{
             objectFit: 'cover',
@@ -204,102 +239,142 @@ export default function Home() {
       </div>
     </div>
   </div>
+  </div>
+
 </section>
 
 
 <section id= "projects">
 <Projects />
 </section>
-        <section id = "skills" className="w-full py-2 md:py-4 lg:py-8 dotted">
+        <section id = "skills" className="w-full py-2 md:py-4 lg:py-8 dottedREP bg-purple-900/30 backdrop-blur-sm">
           <div 
             className="mx-auto container grid items-center justify-center gap-4 px-4 text-center md:px-6 py-8" >
             <div className="space-y-3">
               <h2 className="text-3xl space-y-4 font-bold tracking-tighter sm:text-4xl md:text-5xl" data-aos='flip-up' data-aos-duration='400'>My Skills</h2>
+             <p
+    className="text-base italic text-gray-300"
+    data-aos="fade-right"
+    data-aos-delay="200"
+  >
+    Always learning, always leveling up 🚀
+  </p>
             </div>
             <div
-              className="mx-auto grid items-start gap-8 sm:max-w-4xl sm:grid-cols-2 md:gap-6 lg:max-w-5xl lg:grid-cols-5" data-aos='fade-up' data-aos-duration='600'>
-              <div className="flex flex-col items-center justify-center">
-              <FaJava className="h-6 w-6 mb-2 text-white" />
-        <span className="text-sm font-medium">Java</span>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <FaCode className="h-6 w-6 mb-2 text-white" />
-        <span className="text-sm font-medium">Web Development</span>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <FaGithub className="h-6 w-6 mb-2 text-white" />
-        <span className="text-sm font-medium">GitHub & Version Control</span>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <FaRobot className="h-6 w-6 mb-2 text-white" />
-        <span className="text-sm font-medium">Artificial Intelligence & Machine Learning</span>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <FaUnity className="h-6 w-6 mb-2 text-white" />
-        <span className="text-sm font-medium">Unity3D</span>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <FaRuler className="h-6 w-6 mb-2 text-white" />
-        <span className="text-sm font-medium">Leadership</span>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <FaLightbulb className="h-6 w-6 mb-2 text-white" />
-        <span className="text-sm font-medium">Creativity</span>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <FaUsers className="h-6 w-6 mb-2 text-white" />
-        <span className="text-sm font-medium">Teamwork</span>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <FaClock className="h-6 w-6 mb-2 text-white" />
-        <span className="text-sm font-medium">Time Management</span>
-      </div>
+              className=" mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 lg:max-w-5xl items-start" data-aos='fade-up' data-aos-duration='600'>
+             {/* ---------------- LANGUAGES ---------------- */}
+<div className="flex flex-col items-center justify-center">
+  <FaJava  className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">Java</span>
+</div>
+<div className="flex flex-col items-center justify-center">
+  <FaJs className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">JavaScript</span>
+</div>
+<div className="flex flex-col items-center justify-center">
+  <FaPython className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">Python</span>
+</div>
+<div className="flex flex-col items-center justify-center">
+  <FaTerminal className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">C & C++</span>
+</div>
 
-      {/* Newly Added Skills */}
-      <div className="flex flex-col items-center justify-center">
-        <FaTerminal className="h-6 w-6 mb-2 text-white" />
-        <span className="text-sm font-medium">C & C++</span>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <FaJs className="h-6 w-6 mb-2 text-white" />
-        <span className="text-sm font-medium">JavaScript</span>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <FaGlobe className="h-6 w-6 mb-2 text-white" />
-        <span className="text-sm font-medium">Next.js & React</span>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <FaServer className="h-6 w-6 mb-2 text-white" />
-        <span className="text-sm font-medium">Node.js & Express</span>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <FaDatabase className="h-6 w-6 mb-2 text-white" />
-        <span className="text-sm font-medium">MongoDB</span>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <FaCloud className="h-6 w-6 mb-2 text-white" />
-        <span className="text-sm font-medium">AWS Cloud</span>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <FaCloud className="h-6 w-6 mb-2 text-white" />
-        <span className="text-sm font-medium">Google Cloud Platform (GCP)</span>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <FaCogs className="h-6 w-6 mb-2 text-white" />
-        <span className="text-sm font-medium">RESTful APIs</span>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <FaDesktop className="h-6 w-6 mb-2 text-white" />
-        <span className="text-sm font-medium">Operating Systems (OS)</span>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <FaCodeBranch className="h-6 w-6 mb-2 text-white" />
-        <span className="text-sm font-medium">Unix & Linux</span>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <FaProjectDiagram className="h-6 w-6 mb-2 text-white" />
-        <span className="text-sm font-medium">Algorithms & Data Structures</span>
-      </div>
+{/* ------------ WEB / BACKEND --------------- */}
+<div className="flex flex-col items-center justify-center">
+  <FaCode className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">Web Development</span>
+</div>
+<div className="flex flex-col items-center justify-center">
+  <FaGlobe className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">Next.js & React</span>
+</div>
+<div className="flex flex-col items-center justify-center">
+  <FaServer className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">Node.js & Express</span>
+</div>
+<div className="flex flex-col items-center justify-center">
+  <FaCogs className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">RESTful APIs</span>
+</div>
+
+{/* ------------- CLOUD / DEVOPS ------------- */}
+<div className="flex flex-col items-center justify-center">
+  <FaCloud className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">AWS Cloud</span>
+</div>
+<div className="flex flex-col items-center justify-center">
+  <FaGoogle className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">Google Cloud Platform</span>
+</div>
+<div className="flex flex-col items-center justify-center">
+  <FaCloudUploadAlt className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">Cloud Run</span>
+</div>
+<div className="flex flex-col items-center justify-center">
+  <FaDocker className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">Docker</span>
+</div>
+
+{/* ----------------- DATA ------------------- */}
+<div className="flex flex-col items-center justify-center">
+  <FaDatabase className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">BigQuery</span>
+</div>
+<div className="flex flex-col items-center justify-center">
+  <FaLeaf className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">MongoDB</span>
+</div>
+
+{/* ------- COLLABORATION & TOOLING -------- */}
+<div className="flex flex-col items-center justify-center">
+  <FaGithub className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">Git/GitHub/GitLab</span>
+</div>
+<div className="flex flex-col items-center justify-center">
+  <FaProjectDiagram className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">DrawIO & Diagrams</span>
+</div>
+
+{/* ---------- SPECIALTIES & OTHER ---------- */}
+<div className="flex flex-col items-center justify-center">
+  <FaRobot className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">AI & Machine Learning</span>
+</div>
+<div className="flex flex-col items-center justify-center">
+  <FaUnity className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">Unity 3D</span>
+</div>
+<div className="flex flex-col items-center justify-center">
+  <FaStream className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">Algorithms & Data Structures</span>
+</div>
+<div className="flex flex-col items-center justify-center">
+  <FaDesktop className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">Operating Systems</span>
+</div>
+<div className="flex flex-col items-center justify-center">
+  <FaCodeBranch className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">Unix & Linux</span>
+</div>
+
+{/* -------------- SOFT SKILLS -------------- */}
+<div className="flex flex-col items-center justify-center">
+  <FaRuler className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">Leadership</span>
+</div>
+<div className="flex flex-col items-center justify-center">
+  <FaUsers className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">Teamwork</span>
+</div>
+<div className="flex flex-col items-center justify-center">
+  <FaLightbulb className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">Creativity</span>
+</div>
+<div className="flex flex-col items-center justify-center">
+  <FaClock className="h-6 w-6 mb-2 text-white" />
+  <span className="text-sm font-medium">Time Management</span>
+</div>
             </div>
           </div>
         </section>
@@ -349,7 +424,7 @@ export default function Home() {
     </div>
   </div>
 </section>
-<section className="w-full py-8 md:py-12 lg:py-16 dotted">
+<section className="w-full py-8 md:py-12 lg:py-16 bg-purple-900/30 backdrop-blur-sm">
   <div id="resume" className="container mx-auto px-4 md:px-6">
     <div className="max-w-3xl mx-auto text-center space-y-8">
       <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-white">
@@ -363,7 +438,7 @@ export default function Home() {
           href="https://docs.google.com/document/d/12og3HniuDy5Nqm0LpAfb5dOaV5B-k4jn/edit?usp=sharing&ouid=102048050812793693879&rtpof=true&sd=true"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center px-6 py-3 border border-transparent text-base hover:animate-pulse font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition duration-150 ease-in-out"
+          className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-purple-600 hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition duration-150 ease-in-out anim-border"
         >
           <Book className="w-5 h-5 mr-2" />
           {mobile ? 'Google Doc' : 'View on Google Docs'}
