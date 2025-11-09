@@ -10,6 +10,7 @@ import ghce from "../../public/ghce.png";
 import jChristmas from "../../public/javaChristmasProject.png";
 import KTP from "../../public/ktp.png";
 import linkedin from "../../public/linkedin.jpeg";
+import localcam from "../../public/localcam.png";
 import picto from "../../public/picto.png";
 import truck from "../../public/truck.jpeg";
 import ProjectCard from "./ProjectCards";
@@ -45,6 +46,16 @@ linkHref="https://githubcampus.expert/TheRyanMajd//"
 imageUrl={ghce}
 year={"2025"}
 />
+
+<ProjectCard
+  title="LocalCam"
+  description="Android app that revives a 10+ year-old phone as an IP camera. Streams RTSP (H.264 + AAC) with sub-4 second latency using Jetpack Compose and Material 2. Features include auto-discovery of local IPv4, runtime settings for resolution, FPS, bitrate, rotation, and persistent configuration via settings.json—built entirely in Kotlin to minimize dependencies and optimize local streaming performance."
+  linkHref="https://github.com/TheRyanMajd/LocalCam"
+  imageUrl={localcam}
+  year={"2025"}
+/>
+
+
 
 <ProjectCard
 title="Kappa Theta Pi at UGA"

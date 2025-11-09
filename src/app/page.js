@@ -127,7 +127,7 @@ export default function Home() {
           >
             Macy&apos;s Tech
           </Link> 
-          &nbsp;SWE intern, Tech director for <Link
+          &nbsp;Ex SWE intern, Tech director for <Link
             className="text-sm font-medium text-purple-900 md:text-xl my-4 transition-all hover:font-bold underline-offset-4"
             target="_blank"
             href="https://ugahacks.com"
