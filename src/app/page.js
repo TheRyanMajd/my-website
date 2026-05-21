@@ -142,13 +142,13 @@ export default function Home() {
                   />
                 </h1>
                 <p className="mx-auto my-4 max-w-[700px] text-gray-400 md:text-xl mb-4">
-                  I hold a B.S in Computer Science from &nbsp;
+                  I hold a B.S in Computer Science from&nbsp;
                   <Link
                     className="text-sm font-medium text-red-600 md:text-xl my-4 transition-all hover:font-bold underline-offset-4"
                     target="_blank"
                     href="https://www.uga.edu/"
                   >
-                    University of Georgia
+                    The University of Georgia
                   </Link>
                   , passionate about building impactful software, leadership,
                   and advancing technology for good. I build full stack
@@ -438,7 +438,7 @@ export default function Home() {
                   </li>
                 </Link>
 
-                <Link
+                {/* <Link
                   className="text-sm font-medium hover:font-bold underline-offset-4 dark:text-gray-300 hover:animate-pulse"
                   target="_blank"
                   href="tel:+16786771014"
@@ -451,12 +451,12 @@ export default function Home() {
                     <FaPhone className="h-6 w-6 mb-2 dark:text-white" />
                     <span className="text-sm font-medium">(678) 677-1014</span>
                   </li>
-                </Link>
+                </Link> */}
 
                 <Link
                   className="text-sm font-medium hover:font-bold underline-offset-4 dark:text-gray-300 hover:animate-pulse"
                   target="_blank"
-                  href="mailto:ryan.majd@uga.edu"
+                  href="mailto:ryan1130124@gmail.com"
                 >
                   <li
                     className="flex flex-col items-center justify-center"
@@ -532,7 +532,7 @@ export default function Home() {
           </Link>
           <Link
             className="text-xs hover:underline underline-offset-4 dark:text-gray-300 hover:animate-pulse"
-            href="mailto:ryan.majd@uga.edu"
+            href="mailto:ryan1130124@gmail.com"
           >
             Email
           </Link>
