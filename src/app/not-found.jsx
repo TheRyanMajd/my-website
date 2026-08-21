@@ -1,30 +1,21 @@
-import Link from "next/link"
-import React from 'react'
+import Link from "next/link";
 
-function NotFound() {
+export default function NotFound() {
   return (
-    <div className="flex min-h-[100dvh] flex-col items-center justify-center bg-background px-4 py-12 sm:px-6 lg:px-8 dotted">
-    <div className="mx-auto max-w-md text-center">
-        <h1 className="inline-flex text-5xl animate-spin hover:animate-none">😾</h1>
-      <h1 className="mt-4 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-        Oops, we couldn&apos;t find that page
-      </h1>
-      <p className="mt-4 text-muted-foreground">
-        We&apos;re sorry, but the page you were looking for doesn&apos;t seem to exist. It&apos;s possible the page has been moved or
-        deleted, or you may have followed an outdated link.
-      </p>
-      <div className="mt-6">
+    <div className="flex min-h-dvh flex-col items-center justify-center px-4">
+      <div className="material-thick max-w-md rounded-[var(--radius-lg)] p-8 text-center">
+        <h1 className="headline mb-3">Page not found</h1>
+        <p className="body-lg mb-8 text-[var(--muted)]">
+          The page you&apos;re looking for doesn&apos;t exist or may have been
+          moved.
+        </p>
         <Link
           href="/"
-          className="inline-flex mx-auto items-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 bg-white text-black hover:animate-pulse"
-          prefetch={false}
+          className="pressable inline-flex h-10 items-center rounded-full bg-[var(--accent)] px-6 text-sm font-medium text-white transition-colors hover:bg-[var(--accent-hover)]"
         >
-          Take me back home
+          Back to home
         </Link>
       </div>
     </div>
-  </div>
-  )
+  );
 }
-
-export default NotFound

@@ -1,17 +1,15 @@
-import { Inter } from 'next/font/google'
-import './globals.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import "./globals.css";
 
 export const metadata = {
-  title: 'Ryan Majd',
-  description: 'Portfolio of Ryan Majd – full-stack software engineer, KTP founder, and TravelByte CTO. Built with Next.js, React, and Vercel v0.',
-}
+  title: "Ryan Majd",
+  description:
+    "Portfolio of Ryan Majd — Software Engineer at Lockheed Martin, UGA alum, KTP founder, and TravelByte CTO.",
+};
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" data-scroll-behavior="smooth">
+      <body>{children}</body>
     </html>
-  )
+  );
 }
