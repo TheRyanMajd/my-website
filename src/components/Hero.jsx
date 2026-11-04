@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { TypeAnimation } from "react-type-animation";
 import vers from "../../package.json";
 import Reveal from "./Reveal";
@@ -25,14 +25,29 @@ const roles = [
   1800,
 ];
 
-export default function Hero() {
-  const [reducedMotion, setReducedMotion] = useState(false);
+const reducedMotionQuery = "(prefers-reduced-motion: reduce)";
 
-  useEffect(() => {
-    setReducedMotion(
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches,
-    );
-  }, []);
+function subscribeToReducedMotion(onStoreChange) {
+  const mediaQuery = window.matchMedia(reducedMotionQuery);
+  mediaQuery.addEventListener("change", onStoreChange);
+
+  return () => mediaQuery.removeEventListener("change", onStoreChange);
+}
+
+function getReducedMotionSnapshot() {
+  return window.matchMedia(reducedMotionQuery).matches;
+}
+
+function getServerReducedMotionSnapshot() {
+  return false;
+}
+
+export default function Hero() {
+  const reducedMotion = useSyncExternalStore(
+    subscribeToReducedMotion,
+    getReducedMotionSnapshot,
+    getServerReducedMotionSnapshot,
+  );
 
   return (
     <section className="section">
