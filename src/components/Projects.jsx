@@ -9,10 +9,19 @@ import linkedin from "../../public/linkedin.jpeg";
 import localcam from "../../public/localcam.png";
 import picto from "../../public/picto.png";
 import truck from "../../public/truck.jpeg";
+import tui from "../../public/tui.png";
 import ProjectCard from "./ProjectCard";
 import Reveal from "./Reveal";
 
 const projects = [
+  {
+    title: "Rust TUI Splashscreen",
+    description:
+      "A terminal splash screen built with Rust and Ratatui that displays the current user, time, weather from wttr.in, and a random fortune piped into cowsay.",
+    linkHref: "https://github.com/TheRyanMajd/rust-tui-splashscreen",
+    imageUrl: tui,
+    year: "2026",
+  },
   {
     title: "KRONOS",
     description:
@@ -74,7 +83,8 @@ const projects = [
     title: "Ubuntu Home Server",
     description:
       "Turned a spare laptop into an Ubuntu Server with Samba storage, Minecraft servers, and a Plex media server — a perfect blend of hobby and hands-on IT skills.",
-    linkHref: "https://www.linkedin.com/feed/update/urn:li:activity:7172674962745454593/",
+    linkHref:
+      "https://www.linkedin.com/feed/update/urn:li:activity:7172674962745454593/",
     imageUrl: linkedin,
     year: "2024",
   },
@@ -91,7 +101,8 @@ const projects = [
     description:
       "Integrates OpenWeatherMap and SeatGeek APIs to help users plan around weather and local events within a 20-mile radius.",
     imageUrl: EC,
-    linkHref: "mailto:ryan.majd@uga.edu?subject=Request Access to EventCast℠ Repository",
+    linkHref:
+      "mailto:ryan.majd@uga.edu?subject=Request Access to EventCast℠ Repository",
     year: "2023",
   },
   {
@@ -99,7 +110,8 @@ const projects = [
     description:
       "A program built with AP Computer Science and UGA CSCI 1301 that assists in providing gift choices for my family.",
     imageUrl: jChristmas,
-    linkHref: "https://github.com/RyanMajd/Projects/blob/main/ChristmasList.java",
+    linkHref:
+      "https://github.com/RyanMajd/Projects/blob/main/ChristmasList.java",
     year: "2022",
   },
 ];
