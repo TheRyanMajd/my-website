@@ -1,0 +1,150 @@
+% Ryan Majd - Resume, November 2026.
+% Compile with pdfLaTeX; single-file Overleaf upload, self-generates resume.cls.
+\begin{filecontents*}[overwrite]{resume.cls}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{resume}[2026/11/09 Simple readable resume]
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{article}}
+\ProcessOptions\relax
+\LoadClass[10pt,letterpaper]{article}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+\RequirePackage{enumitem}
+\RequirePackage{microtype}
+\RequirePackage[hidelinks]{hyperref}
+\renewcommand{\normalsize}{\@setfontsize\normalsize{10}{12}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\pagestyle{empty}
+\raggedbottom
+\newcommand{\resumename}{}
+\newcommand{\resumecontact}{}
+\newcommand{\name}[1]{\gdef\resumename{#1}}
+\newcommand{\address}[1]{\g@addto@macro\resumecontact{#1\par}}
+\AtBeginDocument{%
+  \begingroup\centering
+  {\fontsize{22}{25}\selectfont\bfseries\resumename\par}
+  \vspace{3pt}
+  {\fontsize{9.5}{11.5}\selectfont\resumecontact}
+  \endgroup
+  \vspace{4pt}
+}
+\newenvironment{rSection}[1]{%
+  \par\addvspace{9pt}% space BEFORE each section
+  {\bfseries\MakeUppercase{#1}}\par\nobreak
+  \vspace{3pt}\hrule height 0.4pt\relax
+  \vspace{3pt}\nobreak
+}{\par}
+\setlist[itemize]{%
+  leftmargin=1.2em,
+  label=\textbullet,
+  topsep=2pt,
+  itemsep=1.5pt,
+  parsep=0pt,
+  partopsep=0pt,
+  before=\raggedright
+}
+\endinput
+\end{filecontents*}
+
+\documentclass{resume}
+\usepackage[left=0.4in,top=0.35in,right=0.4in,bottom=0.35in]{geometry}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\hypersetup{pdftitle={Ryan Majd Resume},pdfauthor={Ryan Majd}}
+
+\newcommand{\resumeEntry}[4]{%
+  \par\textbf{#1}\hfill #2\par\nobreak
+  \textit{#3}\hfill\textit{#4}\par\nobreak
+}
+\newcommand{\resumeProject}[3]{%
+  \par\textbf{#1}\enspace\textbar\enspace #2\hfill\textit{#3}\par\nobreak
+}
+\newcommand{\entrygap}{\vspace{5pt}}
+
+\name{Ryan Majd}
+\address{(678) 677-1014\quad\textbar\quad
+  \href{mailto:ryan1130124@gmail.com}{ryan1130124@gmail.com}\quad\textbar\quad
+  \href{https://RyanMajd.com}{RyanMajd.com}\quad\textbar\quad
+  \href{https://www.linkedin.com/in/Ryan-Majd}{linkedin.com/in/Ryan-Majd}}
+
+\begin{document}
+
+\begin{rSection}{Education}
+    \textbf{University of Georgia}\hfill May 2026\\
+    B.S. in Computer Science\hfill GPA: 3.6\\
+    Honors: Dean's List
+\end{rSection}
+
+\begin{rSection}{Skills}
+    \textbf{Languages:} Java, Python, JavaScript, TypeScript, Rust, SQL, C/C++, C\#, Kotlin, Ada\\
+    \textbf{Frameworks \& Libraries:} React, Next.js, Node.js, Express, Expo, React Native, NumPy, JavaFX\\
+    \textbf{Cloud \& Data:} Google Cloud (BigQuery, Composer, Logging), AWS, Apache Airflow, MongoDB\\
+    \textbf{Tools \& Systems:} Git, Linux/Unix, Docker, REST APIs, CI/CD pipelines
+\end{rSection}
+\begin{rSection}{Experience}
+    \resumeEntry{Lockheed Martin}{June 2026 -- Present}{Software Engineer -- Aeronautics}{Marietta, GA}
+    \begin{itemize}
+        \item Automated repository provisioning, baseline ingestion, CI pipeline execution, and artifact publishing with Python, reducing a SWAG'd \textbf{72 hour process to 7 minutes} across \textbf{10+ manual steps}.
+        \item Technical lead for internal document-generation tool, automating creation and validation of software requirements documents.
+        \item Supported Windows 11 GitLab CI runners and configured license-server connectivity for Green Hills Compiler-based build pipelines.
+        \item Facilitated a lunch-and-learn on AI-assisted development; earned the \textbf{Team Platform Cup Award of PI 26.3}.
+    \end{itemize}
+
+    \entrygap
+    \resumeEntry{Macy's Inc.}{May 2025 -- Aug. 2025}{Software Engineering Intern -- Marketing Technology}{}
+    \begin{itemize}
+        \item Designed and deployed data pipelines on Google Cloud (BigQuery, Cloud Composer), automating daily data processing workflows.
+        \item Optimized SQL queries and database schemas across \textbf{54+ pipelines} and \textbf{2+ dashboards}, reducing runtime by \textbf{30\%+}.
+        \item Scaled personalization campaign events by \textbf{150\%} through SAS CRM/PZO orchestration fixes; tested prod API edge cases.
+    \end{itemize}
+
+    \entrygap
+    \resumeEntry{TravelByte Inc.}{June 2024 -- Present}{Co-Founder \& Chief Technology Officer}{}
+    \begin{itemize}
+        \item Lead Agile product development for a SaaS startup; built a Next.js, React, and Tailwind CSS landing page that drove \textbf{4$\times$ growth} in customer interactions.
+        \item Developed a React Native MVP integrating Google Cloud services and the Google Maps SDK.
+    \end{itemize}
+
+    \entrygap
+    \resumeEntry{BIP Ventures}{June 2023 -- June 2024}{AI Engineering Intern}{}
+    \begin{itemize}
+        \item Created a \textbf{57-page} resource library documenting AI tools, prompting techniques, and code examples for startups.
+    \end{itemize}
+\end{rSection}
+
+\begin{rSection}{Projects}
+
+    \resumeProject{\href{https://github.com/TheRyanMajd/LocalCam}{LocalCam}}{Android IP Camera Application}{Kotlin, RTSP}
+    \begin{itemize}
+        \item Developed an Android application that repurposes older phones (Android 6+) into IP cameras using RTSP.
+    \end{itemize}
+
+    \entrygap
+    \resumeProject{\href{https://github.com/TheRyanMajd/img-to-ics}{imgToICS}}{Image-to-Calendar Conversion}{Python, GPT-4o, OCR}
+    \begin{itemize}
+        \item Developed GUI and CLI tools that automate calendar event creation by extracting event details from images using OCR and LLM parsing.
+    \end{itemize}
+
+    \entrygap
+    \resumeProject{\href{https://github.com/TheRyanMajd/rust-tui-splashscreen}{Rust TUI Splashscreen}}{Terminal Dashboard}{Rust, Ratatui, Cargo}
+    \begin{itemize}
+        \item Built an interactive TUI displaying live weather, system time, and ascii fortunes using \textbf{Rust}, Ratatui, and CLI integrations.
+    \end{itemize}
+
+\end{rSection}
+
+
+\begin{rSection}{Leadership}
+    \textbf{Kappa Theta Pi (Phi Chapter) -- Founder \& President}\hfill Aug. 2024 -- Jan. 2026\\
+    Founded UGA's first professional tech fraternity and led \textbf{55+ members}; deployed Proxmox/Linux infrastructure, CI/CD pipelines, and hosted a chapter hackathon.
+
+    \entrygap
+    \textbf{UGAHacks 9, 10, and 11 -- Technology Director}\hfill June 2023 -- May 2026\\
+    Led weekly Scrum meetings; rebuilt \textbf{3+} Next.js/TypeScript sites, abstracting \textbf{10K+ lines} of HTML and integrating \textbf{3K+ records} into BigQuery/Firestore.
+
+    \entrygap
+    \textbf{GitHub Campus Expert}\hfill June 2025 -- May 2026\\
+    Trained by GitHub to support local developer communities through workshops and mentorship.
+\end{rSection}
+
+\end{document}

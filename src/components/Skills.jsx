@@ -1,28 +1,34 @@
 "use client";
 
 import {
+  FaAndroid,
+  FaAws,
   FaClock,
   FaCloud,
   FaCloudUploadAlt,
   FaCode,
-  FaCodeBranch,
   FaCogs,
   FaDatabase,
   FaDesktop,
   FaDocker,
+  FaDoorClosed as FaDoor,
   FaGithub,
-  FaGlobe,
   FaGoogle,
   FaJava,
   FaJs,
   FaLeaf,
   FaLightbulb,
+  FaLinux,
+  FaMobileAlt,
+  FaNodeJs,
+  FaPlane,
   FaProjectDiagram,
   FaPython,
+  FaReact,
   FaRobot,
   FaRuler,
-  FaServer,
   FaStream,
+  FaSyncAlt,
   FaTerminal,
   FaUnity,
   FaUsers,
@@ -32,28 +38,46 @@ import Reveal from "./Reveal";
 const skillGroups = [
   {
     label: "Languages",
+    columns: 2,
     skills: [
       { icon: FaJava, name: "Java" },
       { icon: FaJs, name: "JavaScript" },
+      { icon: FaCode, name: "TypeScript" },
       { icon: FaPython, name: "Python" },
+      { icon: FaTerminal, name: "Rust" },
+      { icon: FaDatabase, name: "SQL" },
       { icon: FaTerminal, name: "C & C++" },
+      { icon: FaCode, name: "C#" },
+      { icon: FaAndroid, name: "Kotlin" },
+      { icon: FaPlane, name: "Ada" },
     ],
   },
   {
     label: "Web & Backend",
     skills: [
       { icon: FaCode, name: "Web Development" },
-      { icon: FaGlobe, name: "Next.js & React" },
-      { icon: FaServer, name: "Node.js & Express" },
+      { icon: FaReact, name: "React & Next.js" },
+      { icon: FaNodeJs, name: "Node.js & Express" },
+      { icon: FaCode, name: "Tailwind CSS" },
       { icon: FaCogs, name: "RESTful APIs" },
+    ],
+  },
+  {
+    label: "Mobile & Libraries",
+    skills: [
+      { icon: FaMobileAlt, name: "React Native & Expo" },
+      { icon: FaPython, name: "NumPy" },
+      { icon: FaJava, name: "JavaFX" },
     ],
   },
   {
     label: "Cloud & DevOps",
     skills: [
-      { icon: FaCloud, name: "AWS Cloud" },
+      { icon: FaAws, name: "AWS Cloud" },
       { icon: FaGoogle, name: "Google Cloud Platform" },
       { icon: FaCloudUploadAlt, name: "Cloud Run" },
+      { icon: FaCloud, name: "Cloud Composer & Logging" },
+      { icon: FaSyncAlt, name: "CI/CD Pipelines" },
       { icon: FaDocker, name: "Docker" },
     ],
   },
@@ -62,6 +86,8 @@ const skillGroups = [
     skills: [
       { icon: FaDatabase, name: "BigQuery" },
       { icon: FaLeaf, name: "MongoDB" },
+      { icon: FaProjectDiagram, name: "Apache Airflow" },
+      { icon: FaDoor, name: "IBM's DOORs" },
     ],
   },
   {
@@ -78,7 +104,7 @@ const skillGroups = [
       { icon: FaUnity, name: "Unity 3D" },
       { icon: FaStream, name: "Algorithms & Data Structures" },
       { icon: FaDesktop, name: "Operating Systems" },
-      { icon: FaCodeBranch, name: "Unix & Linux" },
+      { icon: FaLinux, name: "Unix & Linux" },
     ],
   },
   {
@@ -112,7 +138,7 @@ export default function Skills() {
                 <h3 className="caption mb-4 font-semibold uppercase tracking-wider">
                   {group.label}
                 </h3>
-                <ul className="space-y-3">
+                <ul className={group.columns === 2 ? "grid grid-cols-2 gap-x-3 gap-y-3" : "space-y-3"}>
                   {group.skills.map(({ icon: Icon, name }) => (
                     <li
                       key={name}

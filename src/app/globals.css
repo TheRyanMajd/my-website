@@ -190,3 +190,219 @@ body {
     transition: opacity 0.2s ease;
   }
 }
+
+/* Resume source and PDF workspace */
+.resume-workspace {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.resume-workspace-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.resume-eyebrow {
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.resume-workspace-title {
+  margin-top: 0.25rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.resume-cursor {
+  color: var(--accent);
+  animation: resume-blink 1.2s steps(2, start) infinite;
+}
+
+.resume-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.resume-action, .resume-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border-radius: 999px;
+  padding: 0.65rem 1rem;
+}
+
+.resume-action {
+  border: 1px solid var(--border);
+}
+
+.resume-action:hover {
+  background: var(--surface);
+}
+
+.resume-download {
+  background: var(--accent);
+  color: white;
+}
+
+.resume-download:hover {
+  background: var(--accent-hover);
+}
+
+.resume-panels {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  border-top: 1px solid var(--border);
+}
+
+.resume-source-panel {
+  min-width: 0;
+  container-type: inline-size;
+  background: #171b24;
+  color: #d7dce8;
+}
+
+.resume-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 3.25rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.resume-panel-header > span:first-child {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.resume-source-header {
+  border-color: rgba(255, 255, 255, 0.09);
+  color: #d7dce8;
+}
+
+.resume-readonly, .resume-preview-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.resume-readonly {
+  color: #a6b0c2;
+}
+
+.resume-preview-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--muted);
+}
+
+.resume-preview-label span {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--status);
+}
+
+.resume-code-scroll {
+  height: min(42rem, 90cqw);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.resume-code {
+  min-width: max-content;
+  padding: 1.25rem 1.5rem 1.5rem 0;
+  font: 0.75rem/1.8 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  tab-size: 4;
+}
+
+.resume-code-line {
+  display: flex;
+}
+
+.resume-line-number {
+  flex: 0 0 3.5rem;
+  padding-right: 1.25rem;
+  color: #8792a6;
+  text-align: right;
+  user-select: none;
+}
+
+.resume-code-command { color: #c6a5ff; }
+.resume-code-comment { color: #94a5a0; }
+.resume-code-bracket { color: #ffcb82; }
+.resume-code-math { color: #80d5c2; }
+
+.resume-preview-panel {
+  min-width: 0;
+  container-type: inline-size;
+  background: var(--surface);
+}
+
+.resume-preview {
+  height: min(42rem, 90cqw);
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 1rem;
+  background: rgba(128, 128, 128, 0.12);
+}
+
+.resume-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+.resume-fallback {
+  padding: 0.75rem 1rem;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.resume-fallback a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.reveal.visible .resume-preview img {
+  animation: resume-paper-in 0.8s 0.2s both cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@keyframes resume-paper-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes resume-blink {
+  to { opacity: 0; }
+}
+
+@media (min-width: 768px) {
+  .resume-panels {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .resume-cursor, .reveal.visible .resume-preview img {
+    animation: none;
+  }
+}
