@@ -29,10 +29,10 @@
   \vspace{4pt}
 }
 \newenvironment{rSection}[1]{%
-  \par\addvspace{9pt}% space BEFORE each section
+  \par\addvspace{6pt}% space BEFORE each section
   {\bfseries\MakeUppercase{#1}}\par\nobreak
   \vspace{3pt}\hrule height 0.4pt\relax
-  \vspace{3pt}\nobreak
+  \vspace{6pt}\nobreak
 }{\par}
 \setlist[itemize]{%
   leftmargin=1.2em,
@@ -47,7 +47,7 @@
 \end{filecontents*}
 
 \documentclass{resume}
-\usepackage[left=0.4in,top=0.35in,right=0.4in,bottom=0.35in]{geometry}
+\usepackage[left=0.4in,top=0.45in,right=0.4in,bottom=0.45in]{geometry}
 \input{glyphtounicode}
 \pdfgentounicode=1
 \hypersetup{pdftitle={Ryan Majd Resume},pdfauthor={Ryan Majd}}
@@ -71,72 +71,75 @@
 
 \begin{rSection}{Education}
     \textbf{University of Georgia}\hfill May 2026\\
-    B.S. in Computer Science\hfill GPA: 3.6\\
-    Honors: Dean's List
+    B.S. in Computer Science\hfill GPA: 3.6 \textbar{} Dean's List
 \end{rSection}
 
 \begin{rSection}{Skills}
-    \textbf{Languages:} Java, Python, JavaScript, TypeScript, Rust, SQL, C/C++, C\#, Kotlin, Ada\\
-    \textbf{Frameworks \& Libraries:} React, Next.js, Node.js, Express, Expo, React Native, NumPy, JavaFX\\
-    \textbf{Cloud \& Data:} Google Cloud (BigQuery, Composer, Logging), AWS, Apache Airflow, MongoDB\\
-    \textbf{Tools \& Systems:} Git, Linux/Unix, Docker, REST APIs, CI/CD pipelines
+    \textbf{Languages:} Python, Java, TypeScript, JavaScript, C/C++, SQL, Rust\\
+    \textbf{Frameworks \& Libraries:} React, Next.js, Node.js, Express, React Native\\
+    \textbf{Cloud \& Infrastructure:} AWS (EC2, S3, Amplify), Google Cloud (BigQuery, Composer, Firebase, Cloud Run), Docker, GitLab CI/CD, Apache Airflow\\
+    \textbf{Engineering Tools:} Sonatype Nexus, IBM Rational DOORS, Beyond Compare, GitLab, GitLab Runners
 \end{rSection}
 \begin{rSection}{Experience}
-    \resumeEntry{Lockheed Martin}{June 2026 -- Present}{Software Engineer -- Aeronautics}{Marietta, GA}
+    \resumeEntry{Lockheed Martin}{June 2026 -- Present}{Software Engineer}{Marietta, GA}
     \begin{itemize}
-        \item Automated repository provisioning, baseline ingestion, CI pipeline execution, and artifact publishing with Python, reducing a SWAG'd \textbf{72 hour process to 7 minutes} across \textbf{10+ manual steps}.
-        \item Technical lead for internal document-generation tool, automating creation and validation of software requirements documents.
-        \item Supported Windows 11 GitLab CI runners and configured license-server connectivity for Green Hills Compiler-based build pipelines.
-        \item Facilitated a lunch-and-learn on AI-assisted development; earned the \textbf{Team Platform Cup Award of PI 26.3}.
+        \item Automated repository setup, baseline ingestion, and artifact publishing in Python, replacing \textbf{10+ manual steps} and cutting turnaround from an estimated \textbf{72 hours to 7 minutes} including human review.
+        \item Lead development of an internal tool that pulls requirements from IBM DOORS and generates consistently formatted requirements, test, and qualification documents with test traceability, replacing manual authoring for Agile teams.
+        \item Configured GitLab CI runners on AWS EC2 and on-premises infrastructure, and enabled access to RHEL 9 license servers for software builds across multiple military programs.
+
     \end{itemize}
 
     \entrygap
-    \resumeEntry{Macy's Inc.}{May 2025 -- Aug. 2025}{Software Engineering Intern -- Marketing Technology}{}
+    \resumeEntry{Macy's Inc.}{May 2025 -- Aug. 2025}{Software Engineering Intern}{}
     \begin{itemize}
-        \item Designed and deployed data pipelines on Google Cloud (BigQuery, Cloud Composer), automating daily data processing workflows.
-        \item Optimized SQL queries and database schemas across \textbf{54+ pipelines} and \textbf{2+ dashboards}, reducing runtime by \textbf{30\%+}.
-        \item Scaled personalization campaign events by \textbf{150\%} through SAS CRM/PZO orchestration fixes; tested prod API edge cases.
+        \item Increased personalization campaign event throughput
+              by \textbf{150\%} by resolving data orchestration
+              bottlenecks and modularizing upstream tasks using
+              Apache Airflow XComs.
+        \item Optimized BigQuery SQL and data models for customer personalization workflows and analytics dashboards.
+        \item Engineered data pipelines using Google Cloud Composer (Airflow) for orchestration, BigQuery for data processing, and Google Cloud Storage for file management.
     \end{itemize}
 
     \entrygap
     \resumeEntry{TravelByte Inc.}{June 2024 -- Present}{Co-Founder \& Chief Technology Officer}{}
     \begin{itemize}
-        \item Lead Agile product development for a SaaS startup; built a Next.js, React, and Tailwind CSS landing page that drove \textbf{4$\times$ growth} in customer interactions.
-        \item Developed a React Native MVP integrating Google Cloud services and the Google Maps SDK.
+        \item Lead Agile product development for SaaS startup; built Next.js, React, and Tailwind CSS landing page that \textbf{doubled} the click-through rate.
+        \item Developed React Native MVP integrating Google Cloud services and the Google Maps SDK.
     \end{itemize}
 
-    \entrygap
-    \resumeEntry{BIP Ventures}{June 2023 -- June 2024}{AI Engineering Intern}{}
-    \begin{itemize}
-        \item Created a \textbf{57-page} resource library documenting AI tools, prompting techniques, and code examples for startups.
-    \end{itemize}
+    % \entrygap
+    % \resumeEntry{BIP Ventures}{June 2023 -- June 2024}{Performance Engineering Intern}{}
+    % \begin{itemize}
+    %   \item Created \textbf{57-page} resource library documenting AI tools, prompting techniques, and code examples for startups.
+    % \end{itemize}
 \end{rSection}
-
 \begin{rSection}{Projects}
-
-    \resumeProject{\href{https://github.com/TheRyanMajd/LocalCam}{LocalCam}}{Android IP Camera Application}{Kotlin, RTSP}
+    % \resumeProject{\href{https://github.com/TheRyanMajd/LocalCam}{LocalCam}}{Android IP Camera Application}{Kotlin, RTSP}
+    % \begin{itemize}
+    %   \item Developed Android application that repurposes older phones (Android 6+) into IP cameras using RTSP.
+    % \end{itemize}
+    \resumeProject{Bernard}{Self-Hosted AI Voice Assistant}{Python, Raspberry Pi 5, Docker, Ollama}
     \begin{itemize}
-        \item Developed an Android application that repurposes older phones (Android 6+) into IP cameras using RTSP.
+        \item Built a hands-free voice assistant with wake-word detection and touchscreen UI on Raspberry Pi 5. My home server runs Whisper transcription, local LLM inference, and Kokoro speech synthesis.  \item Routed voice commands to Spotify and Home Assistant for music playback and thermostat control; added a follow-up listening window so users can answer without repeating the wake word.
     \end{itemize}
-
     \entrygap
+
     \resumeProject{\href{https://github.com/TheRyanMajd/img-to-ics}{imgToICS}}{Image-to-Calendar Conversion}{Python, GPT-4o, OCR}
     \begin{itemize}
         \item Developed GUI and CLI tools that automate calendar event creation by extracting event details from images using OCR and LLM parsing.
     \end{itemize}
 
-    \entrygap
-    \resumeProject{\href{https://github.com/TheRyanMajd/rust-tui-splashscreen}{Rust TUI Splashscreen}}{Terminal Dashboard}{Rust, Ratatui, Cargo}
-    \begin{itemize}
-        \item Built an interactive TUI displaying live weather, system time, and ascii fortunes using \textbf{Rust}, Ratatui, and CLI integrations.
-    \end{itemize}
+    % \resumeProject{\href{https://github.com/TheRyanMajd/rust-tui-splashscreen}{Rust TUI Splashscreen}}{Terminal Dashboard}{Rust, Ratatui, Cargo}
+    % \begin{itemize}
+    %   \item Built an interactive TUI displaying live weather, system time, and ascii fortunes using \textbf{Rust}, Ratatui, and CLI integrations.
+    % \end{itemize}
 
 \end{rSection}
 
 
 \begin{rSection}{Leadership}
     \textbf{Kappa Theta Pi (Phi Chapter) -- Founder \& President}\hfill Aug. 2024 -- Jan. 2026\\
-    Founded UGA's first professional tech fraternity and led \textbf{55+ members}; deployed Proxmox/Linux infrastructure, CI/CD pipelines, and hosted a chapter hackathon.
+    Founded UGA's first professional tech fraternity and led \textbf{55+ members}; deployed Proxmox/Linux infrastructure, CI/CD pipelines, and hosted 2 chapter hackathons.
 
     \entrygap
     \textbf{UGAHacks 9, 10, and 11 -- Technology Director}\hfill June 2023 -- May 2026\\
